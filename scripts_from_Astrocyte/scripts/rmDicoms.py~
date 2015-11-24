@@ -1,0 +1,7 @@
+import os, subprocess
+
+path = "/home/astrocyte/Desktop/"
+
+for f in os.listdir(path):
+	if "MRDC" in f:
+		subprocess.call("rm " + path + f, shell=True)

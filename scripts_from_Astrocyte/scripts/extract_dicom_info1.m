@@ -1,0 +1,24 @@
+rootdir = '/media/katie/SocCog/working_data/';
+dirtxt = fopen('/media/katie/SocCog/working_data/dirlist.csv');
+dircel = textscan(dirtxt, '%s', 'delimiter', ',');
+fclose(dirtxt);
+
+controls = fopen('/media/katie/SocCog/working_data/subinfofromdicoms.txt', 'w');
+
+m = cell(length(dircel{1}), 6);
+
+
+for i = 1:length(dircel{1})
+    listing = dir(dircel{1}{i});
+    if length(listing(:,1)) > 7
+        name = listing(8, 1).name;
+        cd(dircel{1}{i});
+        info_struct = dicominfo(name);
+        m(i,:) = {info_struct.PatientID, info_struct.PatientSex, info_struct.PatientBirthDate, info_struct.StudyDate, info_struct.PatientAge, info_struct.Filename};
+    end
+end
+
+
+
+
+cell2csv('/media/katie/SocCog/working_data/subinfofromdicoms.txt', m, ',')

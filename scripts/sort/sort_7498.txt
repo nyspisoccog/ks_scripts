@@ -1,0 +1,33 @@
+Starting on : Wed Apr 23 12:32:37 EDT 2014
+Running on node : v31-hb4.titan
+Current directory : /ifs/scratch/pimri/soccog/scripts
+Current job ID : 2458858
+Current job name : sort_7498
+/ifs/scratch/pimri/soccog/7498/func/run_2M5/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2L6/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1M5/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1L2/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1M6/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2M4/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1M4/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1L3/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1L5/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1M2/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2M2/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1L4/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1L1/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1M1/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2M3/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2L4/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1L6/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2L2/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_1M3/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2M1/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2L1/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2L3/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2M6/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/func/run_2L5/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/anat/s563221_166_SPGR1_s11/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/anat/s569166_5610_1M2_s14/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/anat/s608726_166_SPGR3_s28/dicoms/anonout
+/ifs/scratch/pimri/soccog/7498/anat/s563388_166_SPGR2_s12/dicoms/anonout

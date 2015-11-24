@@ -1,0 +1,5 @@
+Starting on : Wed Apr 23 11:50:59 EDT 2014
+Running on node : v6-hb4.titan
+Current directory : /ifs/scratch/pimri/soccog/scripts
+Current job ID : 2440408
+Current job name : sort_7645

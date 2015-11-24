@@ -1,0 +1,16 @@
+Starting on : Fri Aug  1 17:05:06 EDT 2014
+Running on node : v16-hb4.titan
+Current directory : /ifs/scratch/pimri/soccog/scripts/mastersort/scripts_dir
+Current job ID : 7724299
+Current job name : j7403_anat-1-1
+Unable to run job: job rejected: no script in your request.
+Exiting.
+['7403', 'anat-1-1']
+Traceback (most recent call last):
+  File "/ifs/scratch/pimri/soccog/scripts/mastersort/scripts_dir/p7403_anat-1-1.py", line 14, in <module>
+    qsub_cnv_out = dcm_ops.cnv_dcm('/ifs/scratch/pimri/soccog/test_working/7403/anat-1-1', '7403_anat-1-1', '/ifs/scratch/pimri/soccog/scripts/mastersort/scripts_dir/cnv')
+  File "/ifs/scratch/pimri/soccog/scripts/mastersort/scripts_dir/dcm_ops.py", line 120, in cnv_dcm
+    shell=True)
+  File "/ifs/scratch/pimri/soccog/scripts/mastersort/scripts_dir/uf.py", line 64, in check_output
+    raise error
+subprocess.CalledProcessError: Command 'qsub qsub_7403_anat-1-1.sh' returned non-zero exit status 1

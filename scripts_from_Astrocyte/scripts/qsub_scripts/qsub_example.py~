@@ -1,0 +1,82 @@
+import subprocess
+import os
+
+
+###Because I built up my qsub scripts on my local machine, I needed two lists of source directories
+###one on my local machine, and one on the cluster
+
+nm_dirs = ['/ifs/scratch/pimri/pyschotherapy/data/Panic/', '/ifs/scratch/pimri/pyschotherapy/data/PTSD/',\
+            '/ifs/scratch/pimri/pyschotherapy/data/Controls/']
+
+src_dirs = ['/media/katie/PanicPTSD/Panic/', '/media/katie/PanicPTSD/PTSD/',\
+            '/media/katie/PanicPTSD/Controls/']
+
+
+###Create bash script that will have list of qsub commands
+g = open('/home/katie/scripts/recon_script.sh', 'w+')
+g.write('#!/bin/bash\ncd /ifs/scratch/pimri/psychotherapy/qsub_scripts/\n') #start script w/ shebang; navigate to directory
+
+
+###Build up a list of paths for a single dicom.  This is written for my directory structure.  
+###Obviously, yours will be different.
+
+fspgr_dirs = []
+for i, src_dir in enumerate(src_dirs):
+    for subj_dir in os.listdir(src_dir):
+        anat_dir = os.path.join(src_dir, subj_dir, 'anatomical')
+        for time_dir in os.listdir(anat_dir):
+            time_dir = os.path.join(anat_dir, time_dir)
+            for files_dir in os.listdir(time_dir):
+                for entry in os.listdir(os.path.join(time_dir, files_dir)):
+                    if 'dicoms' in entry:
+                        dicom1 = [d for d in os.listdir(os.path.join(time_dir, files_dir, entry))][3]
+			#stripping off the "src_dir" beginning, instead adding the "nm_dir" beginning:
+                        remote_time_dir = os.path.join(nm_dirs[i], time_dir[len(src_dir):])
+			#1st item of the following tuple is full path, 2nd is name I'm going to give subject
+			#for Freesurfer processing, the same as one of my directory names
+                        fspgr_dirs.append((os.path.join(remote_time_dir, files_dir, entry, dicom1), files_dir)) 
+
+
+###Write out the qsub scripts
+
+for fspgr_dir in fspgr_dirs:
+    subjid = 's' + fspgr_dir[1] 	#adding 's' b/c "files_dir" starts w/ number. Freesurfer doesn't like that.
+    sh_string = 'qsub_' + subjid + '.sh'
+    with open(sh_string, 'w+') as f:   	#new file object f for every path in fspgr_dirs, so I can write qsub script for each.
+        f.write('''\			
+#!/bin/bash
+#$ -S /bin/bash
+#$ -l mem=4G,time=24:00:00
+#$ -cwd
+''')
+        f.write('#$ -N ' + subjid + '\n#$ -j y\n#$ -o '+ subjid + '.txt\n')
+        f.write('''\
+echo "Starting on : $(date)"
+echo "Running on node : $(hostname)"
+echo "Current directory : $(pwd)"
+echo "Current job ID : $JOB_ID"
+echo "Current job name : $JOB_NAME"
+#The following is the job to be performed:
+
+export FREESURFER_HOME=/ifs/scratch/pimri/core/fmri/freesurfer
+export SUBJECTS_DIR=/ifs/scratch/pimri/psychotherapy/freesurfer_output
+export NO_FSFAST=NO_FSFAST
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+export LD_LIBRARY_PATH=/nfs/apps/gcc/4.6.0/lib64
+
+
+''')
+        f.write('recon-all -i ' + fspgr_dir[0] + ' -subject ' + subjid + ' -all -qcache') 
+    g.write('qsub ' + sh_string + '\n')
+
+g.close()
+
+        
+
+
+
+
+
+
+
+        

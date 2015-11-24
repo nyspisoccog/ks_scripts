@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e9bbb33e-dfc0-43aa-b34d-81d0aa9d512a" name="Default" comment="" />
+    <ignored path="python_scripts.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="python_scripts" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="mk_sum_behav_stats.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/mk_sum_behav_stats.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="27" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="3097">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="onsetxformMVnoval1stv2ndtargetnamebehavioralmeasures.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2ndtargetnamebehavioralmeasures.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="8" selection-start="752" selection-end="1136" vertical-scroll-proportion="0.0" vertical-offset="647" max-vertical-offset="5073">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="behavioral.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/behavioral.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="9" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detectbehavoutliers.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/detectbehavoutliers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="10" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="1672">
+              <folding>
+                <element signature="e#22#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="real4d.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/real4d.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="177" selection-end="177" vertical-scroll-proportion="0.4224599" vertical-offset="13" max-vertical-offset="418">
+              <folding>
+                <element signature="e#23#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocCogMasterSort.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/SocCogMasterSort.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="2033">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dcm_ops.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/dcm_ops.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="33" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="1007">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="startuppointlist.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pimriscripts/startuppointlist.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="43" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="494">
+              <folding>
+                <marker date="1437777483155" expanded="true" signature="22:42" placeholder="import ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/concatimg.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxtract_bp.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2ndbehavioralmeasures.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2nd.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxtract_fullcond5.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxtract_fullcond6.py" />
+        <option value="$PROJECT_DIR$/graphbetas.py" />
+        <option value="$PROJECT_DIR$/graphbetaswlegend.py" />
+        <option value="$PROJECT_DIR$/graphbetaswlegenddraftnewtree.py" />
+        <option value="$PROJECT_DIR$/graphbetaswlegenddraft.py" />
+        <option value="$PROJECT_DIR$/graphbetaswlegendtworows.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2ndtargetnamebehavioralmeasures.py" />
+        <option value="$PROJECT_DIR$/citycouncil.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/behav_stats_regression.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/behav_stats_regression_composite_regs.py" />
+        <option value="$PROJECT_DIR$/graphcovinteraction.py" />
+        <option value="$PROJECT_DIR$/comb_cov_betas_w_reg_vals.py" />
+        <option value="$PROJECT_DIR$/practicingplotting.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/behav_stats_regression_comp_regs_subtract.py" />
+        <option value="$PROJECT_DIR$/comb_cov_betas_reg_diffs_incp.py" />
+        <option value="$PROJECT_DIR$/practicingplotting3barplot.py" />
+        <option value="$PROJECT_DIR$/practicingplotting2.py" />
+        <option value="$PROJECT_DIR$/graphbetaswlegendthreerows.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/outlierdetect.py" />
+        <option value="$PROJECT_DIR$/covbarplot.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/mk_sum_behav_stats.py" />
+        <option value="$PROJECT_DIR$/add_dcm.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/merge_con_cov.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/outlierdetect_multi.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2ndwval.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxtract_fullcond6_val.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxformMVwval.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/onsetxtract_valnohalf.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/behavioral.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/startuppointlist.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/detectbehavoutliers.py" />
+        <option value="$PROJECT_DIR$/pimriscripts/real4d.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="84" />
+    <option name="y" value="315" />
+    <option name="width" value="1351" />
+    <option name="height" value="881" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pimriscripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/comb_cov_betas_w_reg_vals.py" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pimriscripts" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.real4d">
+    <configuration default="false" name="onsetxformMVwval" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pimriscripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pimriscripts/onsetxformMVwval.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="onsetxtract_valnohalf" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pimriscripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pimriscripts/onsetxtract_valnohalf.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="detectbehavoutliers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pimriscripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pimriscripts/detectbehavoutliers.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="startuppointlist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pimriscripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pimriscripts/startuppointlist.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="real4d" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pimriscripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pimriscripts/real4d.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_scripts" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.onsetxformMVwval" />
+      <item index="1" class="java.lang.String" itemvalue="Python.onsetxtract_valnohalf" />
+      <item index="2" class="java.lang.String" itemvalue="Python.detectbehavoutliers" />
+      <item index="3" class="java.lang.String" itemvalue="Python.startuppointlist" />
+      <item index="4" class="java.lang.String" itemvalue="Python.real4d" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.real4d" />
+        <item index="1" class="java.lang.String" itemvalue="Python.detectbehavoutliers" />
+        <item index="2" class="java.lang.String" itemvalue="Python.startuppointlist" />
+        <item index="3" class="java.lang.String" itemvalue="Python.onsetxtract_valnohalf" />
+        <item index="4" class="java.lang.String" itemvalue="Python.onsetxformMVwval" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e9bbb33e-dfc0-43aa-b34d-81d0aa9d512a" name="Default" comment="" />
+      <created>1417815090761</created>
+      <updated>1417815090761</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="84" y="315" width="1351" height="881" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280543" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3499246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43236074" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.397878" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/graphbetas.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/graphbetaswlegend.py</url>
+          <line>165</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="120" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMVnoval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="26" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2565" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxtract_fullcond4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="16" selection-start="0" selection-end="2565" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxtract_fullcond5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="72" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.0" vertical-offset="428" max-vertical-offset="1365" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ez_setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="20" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/changeLetter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="21" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphbetas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="8" selection-start="2352" selection-end="2352" vertical-scroll-proportion="0.0" vertical-offset="1606" max-vertical-offset="4389">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/mk_onset_file_affect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/mk_onset_file_simon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="17" selection-start="567" selection-end="567" vertical-scroll-proportion="0.36557788" vertical-offset="165" max-vertical-offset="1938" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphbetaswlegenddraftnewtree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="202" column="36" selection-start="7182" selection-end="7182" vertical-scroll-proportion="0.0" vertical-offset="3522" max-vertical-offset="6004" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2ndbehavioralmeasures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="25" selection-start="2030" selection-end="2053" vertical-scroll-proportion="0.0" vertical-offset="973" max-vertical-offset="5054" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/share/pyshared/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="241" column="14" selection-start="7482" selection-end="7482" vertical-scroll-proportion="-0.18124007" vertical-offset="4579" max-vertical-offset="46075" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/share/pyshared/matplotlib/collections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="0" selection-start="4149" selection-end="4149" vertical-scroll-proportion="-0.40097404" vertical-offset="2413" max-vertical-offset="25004" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/citycouncil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="94" selection-start="476" selection-end="476" vertical-scroll-proportion="-4.3668833" vertical-offset="3013" max-vertical-offset="3629" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphbetaswlegend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="89" selection-start="4725" selection-end="4725" vertical-scroll-proportion="0.42973524" vertical-offset="2620" max-vertical-offset="4731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphbetaswlegendtworows.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="14" selection-start="378" selection-end="378" vertical-scroll-proportion="-0.34004474" vertical-offset="342" max-vertical-offset="4807" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/share/pyshared/matplotlib/transforms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="744" column="0" selection-start="25347" selection-end="25347" vertical-scroll-proportion="0.0" vertical-offset="13913" max-vertical-offset="44384" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="0" selection-start="2713" selection-end="2713" vertical-scroll-proportion="0.6" vertical-offset="1413" max-vertical-offset="8550" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/behav_stats_regression_composite_regs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="40" selection-start="2948" selection-end="2948" vertical-scroll-proportion="-0.8532609" vertical-offset="2005" max-vertical-offset="2793" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/behav_stats_regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.45633802" vertical-offset="1073" max-vertical-offset="2033" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphcovinteraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="14" selection-start="2209" selection-end="2209" vertical-scroll-proportion="4.334375" vertical-offset="95" max-vertical-offset="4351" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxtract_bp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="31" selection-start="1085" selection-end="1085" vertical-scroll-proportion="1.1439115" vertical-offset="317" max-vertical-offset="1691" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2nd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="25" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0" vertical-offset="2736" max-vertical-offset="3781" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphbetaswlegendthreerows.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="14" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.0" vertical-offset="1292" max-vertical-offset="5529">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practicingplotting3barplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="31" selection-start="3521" selection-end="3521" vertical-scroll-proportion="0.0" vertical-offset="1846" max-vertical-offset="3211">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/behav_stats_regression_comp_regs_subtract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practicingplotting2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="35" selection-start="3861" selection-end="3861" vertical-scroll-proportion="0.0" vertical-offset="1903" max-vertical-offset="2736">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/posterplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practicingplotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="0" selection-start="4469" selection-end="4495" vertical-scroll-proportion="0.0" vertical-offset="2207" max-vertical-offset="3287">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/covbarplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="42" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1444">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_dcm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comb_cov_betas_w_reg_vals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="525" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1501">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comb_cov_betas_reg_diffs_incp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="3223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1729">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/outlierdetect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2546">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/merge_con_cov.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="36" selection-start="1403" selection-end="1403" vertical-scroll-proportion="0.0" vertical-offset="737" max-vertical-offset="1178">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/outlierdetect_multi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="32" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <folding>
+            <element signature="e#22#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxtract_fullcond6.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="21" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="1824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxtract_fullcond6_val.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="29" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="1824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMV.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="73" selection-start="4250" selection-end="4250" vertical-scroll-proportion="0.0" vertical-offset="2748" max-vertical-offset="3344">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2ndwval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="0" selection-start="3383" selection-end="3383" vertical-scroll-proportion="0.0" vertical-offset="2187" max-vertical-offset="3857">
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMVwval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="19" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3401">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxtract_valnohalf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="48" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="298" max-vertical-offset="1824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/mk_sum_behav_stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="27" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="3097">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/behavioral.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="9" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/startuppointlist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="43" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="494">
+          <folding>
+            <marker date="1437777483155" expanded="true" signature="22:42" placeholder="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/onsetxformMVnoval1stv2ndtargetnamebehavioralmeasures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="8" selection-start="752" selection-end="1136" vertical-scroll-proportion="0.0" vertical-offset="647" max-vertical-offset="5073">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/SocCogMasterSort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="2033">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/dcm_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="33" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="1007">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/detectbehavoutliers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="10" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="1672">
+          <folding>
+            <element signature="e#22#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pimriscripts/real4d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="177" selection-end="177" vertical-scroll-proportion="0.4224599" vertical-offset="13" max-vertical-offset="418">
+          <folding>
+            <element signature="e#23#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

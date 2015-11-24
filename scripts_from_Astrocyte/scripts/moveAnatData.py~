@@ -1,0 +1,22 @@
+import os, subprocess
+
+root = "/media/katie/PanicPTSD/data/"
+exam_list = open(root + "anat_data" + "/PTSD_Exam_1", 'r')
+exams = exam_list.readlines()
+
+print exams
+
+for child in os.walk(root + "raw_data"):
+	if "spgr" in child[0] or "SPGR" in child[0]:
+		ind = child[0].find("raw_data")
+		exam = child[0][ind + 9:ind + 13]
+		exam_nl = exam + "\n"
+		if exam_nl in exams:
+			dest = root + "anat_data/Panic/" + exam
+			print child[0]
+			if dest not in os.listdir(root + "anat_data/Panic/"):
+				subprocess.call("mkdir " + root + "anat_data/Panic/" + exam, shell=True)
+				print "mkdir " + root + "anat_data/Panic/" + exam
+			print "cp -r " + child[0] + " " + dest
+			subprocess.call("cp -r " + child[0] + " " + dest, shell = True)
+	

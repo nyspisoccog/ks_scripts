@@ -1,0 +1,25 @@
+import os, subprocess
+
+root = "/media/katie/SocCog/avgAnat/"
+
+#subprocess.call("/media/katie/Desktop/startFreesurfer.sh", shell=False)
+
+
+rec = open(root + 'convertrec.txt', 'w')		
+		
+
+for child in os.walk(root):
+	for item in child[2]:
+		#if "MRDC" in item:
+		if "mgz" in item:
+			image = item
+			path = child[0]
+			slash_ind = path.rfind("/")
+			name = path[slash_ind + 1:]
+			#name = item
+			orig = path + "/" + image
+			dest = path + "/" + name + ".nii"
+			subprocess.call("mri_convert " + orig + " " + dest, shell=True)
+			rec.write(path + "/" + name + "\n")
+			break
+

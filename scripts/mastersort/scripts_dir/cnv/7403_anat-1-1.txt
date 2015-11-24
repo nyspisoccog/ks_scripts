@@ -1,0 +1,17 @@
+Starting on : Fri Aug  1 17:09:06 EDT 2014
+Running on node : v16-hb4.titan
+Current directory : /ifs/scratch/pimri/soccog/scripts/mastersort/scripts_dir/cnv
+Current job ID : 7724996
+Current job name : cnv_7403_anat-1-1
+Warning: No display specified.  You will not be able to display graphics on the screen.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2012 The MathWorks, Inc.
+                    R2012a (7.14.0.739) 64-bit (glnxa64)
+                              February 9, 2012
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> 

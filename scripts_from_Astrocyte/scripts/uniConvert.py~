@@ -1,0 +1,11 @@
+import os, codecs
+
+fileLoc = '/home/astrocyte/Documents/'
+
+spreadsheet = codecs.open(fileLoc + 'soccogsample.csv', encoding='utf-8')
+
+f = open(fileLoc + 'soccog.csv', 'w')
+
+for line in spreadsheet:
+	f.write(line)
+

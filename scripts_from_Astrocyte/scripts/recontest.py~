@@ -1,0 +1,3 @@
+import subprocess
+
+subprocess.call('/bin/bash -c ". /home/katie/scripts/startFreesurfer.sh"', shell=True)

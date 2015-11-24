@@ -1,0 +1,2 @@
+/ifs/scratch/pimri/soccog/7404/func/s1586723_5610_1M3_BAD_s14/dicoms
+/ifs/scratch/pimri/soccog/7648/func/s216642_1904_s25/dicoms

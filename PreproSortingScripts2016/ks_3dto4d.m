@@ -18,7 +18,9 @@ spm('Defaults','fMRI');
 spm_jobman('initcfg');
 
 %--------------------------------------------------------------------------
-
+subs = {};
+ser_names = {};
+msgs = {};
 
 for i = 1:length(subjects)
     subject = subjects(i).ID;
@@ -33,7 +35,12 @@ for i = 1:length(subjects)
         runname = sessions{j};
         save(fullfile(logdir, ['fourd_', date, 'Time', time1, time2, '_', subject, runname, '.mat']), 'matlabbatch');
         output = spm_jobman('run',matlabbatch);
+        subs = vertcat(subs, subject);
+        ser_names = vertcat(ser_names, sessions{j});
+        msgs = vertcat(msgs, ['converted to 4D; ' subject sessions{j} '4D.nii created']);
     end 
 end
     
-
+FourD = table(subs, ser_names, msgs);
+writetable(FourD, [data_path, 'FourD.csv'])
+end

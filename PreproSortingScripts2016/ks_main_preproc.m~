@@ -37,7 +37,7 @@ standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     };
 
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new/';
+Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_test/preproc_data_new';
 Data.logdir = fullfile(Data.data_path, 'logdir') ;   
 
 for i = 1:numel(subjects)
@@ -58,16 +58,12 @@ for i = 1:numel(subjects)
 
 end
 
-% Data_7562_1Ls_St.data_path = Data.data_path;
-% Data_7562_1Ls_St.logdir = Data.logdir;
-% Data_7562_1Ls_St.Subjects(1).ID = '7562';
-% Data_7562_1Ls_St.Subjects(1).Runs = standard_runs(1:6);
-% Data_7562_1Ls_St.Subjects(1).NSlices = 35;
-% Data_7562_1Ls_St.Subjects(1).SliceOrd = [1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34];
-
 
 %logfile
-mkdir(Data.logdir);
+if ~exist(Data.logdir, 'dir')
+        mkdir(Data.logdir)
+end
+
 logdir = Data.logdir;
 
 tstamp = clock;
@@ -83,10 +79,13 @@ for i = 1:numel(Data.Subjects)
 	fprintf(loghand,'\n  %s', subject);
 end
 
-ks_conv_dicoms(Data, Time)
-ks_3dto4d(Data, Time)
-ks_reorient2(Data, Time)
+ks_mean_func(Data, Time)
+fprintf(loghand, 'ks_mean_func\n');
+fprintf(loghand, 'mean image of functional runs calculated'
 
+ks_seg1_func(Data, Time)
+fprintf(loghand, 'ks_seg1_func\n');
+fprintf(loghand, 'segmenting original T1 completed\n');
 
 fclose(loghand);
 

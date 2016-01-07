@@ -19,6 +19,9 @@ spm_jobman('initcfg');
 
 %--------------------------------------------------------------------------
 
+subs = {};
+ser_names = {};
+msgs = {};
 
 for i = 1:length(subjects)
     subject = subjects(i).ID;
@@ -33,7 +36,10 @@ for i = 1:length(subjects)
     matlabbatch{1}.spm.util.import.dicom.convopts.format = 'nii';
     matlabbatch{1}.spm.util.import.dicom.convopts.icedims = 0;
     save(fullfile(logdir, ['conv_anat_', date, 'Time', time1, time2, '_', subject, '.mat']), 'matlabbatch');
-        output = spm_jobman('run',matlabbatch);
+    output = spm_jobman('run', matlabbatch);
+    subs = vertcat(subs, subject);
+    ser_names = vertcat(ser_names, 'anat');
+    msgs = vertcat(msgs, ['converted dicom files in ', dicom_dir]);
     spare_dir = fullfile(data_path, subject, 'spare_anat');
     dirlist = dir(spare_dir);
     for d=1:length(dirlist)
@@ -51,6 +57,9 @@ for i = 1:length(subjects)
             matlabbatch{1}.spm.util.import.dicom.convopts.icedims = 0;
             save(fullfile(logdir, ['conv_spare_', name, '_', date, 'Time', time1, time2, '_', subject, '.mat']), 'matlabbatch');
             output = spm_jobman('run',matlabbatch);
+            subs = vertcat(subs, subject);
+            ser_names = vertcat(ser_names, dirlist(d).name);
+            msgs = vertcat(msgs, ['converted dicom files in ', dicom_dir]);
         end
         end
     end
@@ -69,7 +78,14 @@ for i = 1:length(subjects)
         runname = runname(1:end-1);
         save(fullfile(logdir, ['conv_func_', date, 'Time', time1, time2, '_', subject, runname, '.mat']), 'matlabbatch');
         output = spm_jobman('run',matlabbatch);
+        subs = vertcat(subs, subject);
+        ser_names = vertcat(ser_names, sessions{j});
+        msgs = vertcat(msgs, ['converted dicom files in ', dicom_dir]);
     end 
 end
-    
+
+convdicoms = table(subs, ser_names, msgs);
+writetable(convdicoms, [data_path 'convdicoms.csv']);
+
+end
 

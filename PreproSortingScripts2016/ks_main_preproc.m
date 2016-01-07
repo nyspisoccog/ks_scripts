@@ -19,7 +19,7 @@ Time.time2 = time2;
              '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
  
 
-%subjects = {'7432'};
+subjects = {'7645'};
 
 standard_runs = {...
    'run1L1', 'run1L2', 'run1L3', 'run1L4',...
@@ -30,14 +30,14 @@ standard_runs = {...
    'run2M3', 'run2M4', 'run2M5', 'run2M6', ... 
  };
 
-%standard_runs = {'run1L1', 'run1L2'}
+standard_runs = {'run1L1', 'run1L2'}
 
 standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     };
 
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new/';
+Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_test/preproc_data_new';
 Data.logdir = fullfile(Data.data_path, 'logdir') ;   
 
 for i = 1:numel(subjects)
@@ -53,21 +53,15 @@ for i = 1:numel(subjects)
     else runs = standard_runs;
     end
     Data.Subjects(i).Runs = runs;
-    Data.Subjects(i).NSlices = 34;
-    Data.Subjects(i).SliceOrd = [1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34];
-
+    
 end
-
-% Data_7562_1Ls_St.data_path = Data.data_path;
-% Data_7562_1Ls_St.logdir = Data.logdir;
-% Data_7562_1Ls_St.Subjects(1).ID = '7562';
-% Data_7562_1Ls_St.Subjects(1).Runs = standard_runs(1:6);
-% Data_7562_1Ls_St.Subjects(1).NSlices = 35;
-% Data_7562_1Ls_St.Subjects(1).SliceOrd = [1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34];
 
 
 %logfile
-mkdir(Data.logdir);
+if ~exist(Data.logdir, 'dir')
+        mkdir(Data.logdir)
+end
+
 logdir = Data.logdir;
 
 tstamp = clock;
@@ -83,10 +77,44 @@ for i = 1:numel(Data.Subjects)
 	fprintf(loghand,'\n  %s', subject);
 end
 
-ks_conv_dicoms(Data, Time)
-ks_3dto4d(Data, Time)
-ks_reorient2(Data, Time)
+ks_realign_func(Data, Time)
+fprintf(loghand, 'ks_realign_func\n');
+fprintf(loghand, 'mean image of functional runs calculated');
 
+
+ks_seg1_func(Data, Time)
+fprintf(loghand, 'ks_seg1_func\n');
+fprintf(loghand, 'segmenting original T1 completed\n');
+
+ks_strip_func(Data, Time)
+ 
+fprintf(loghand, 'ks_strip_func\n');
+fprintf(loghand, 'skullstripping original T1 completed\n');
+ 
+ks_coreg_func(Data, Time)
+ 
+fprintf(loghand, 'ks_coreg_func\n');
+fprintf(loghand, 'coreg of mean functional to skullstripped T1 completed\n');
+ 
+ks_seg2_func(Data, Time)
+ 
+fprintf(loghand, 'ks_seg2_func\n');
+fprintf(loghand, 'segment/Dartel import of skullstripped T1 completed\n');
+
+ks_smooth_func(Data, Time)
+
+fprintf(loghand, 'ks_smooth_func\n');
+fprintf(loghand, 'created smoothed non-normalized images for ART\n');
+ 
+ks_rundartel_func(Data, Time)
+ 
+fprintf(loghand, 'ks_rundartel_func\n');
+fprintf(loghand, 'DARTEL completed');
+ 
+ks_normalize_func(Data, Time)
+ 
+fprintf(loghand, 'ks_normalize_func\n');
+fprintf(loghand, 'normalization completed');
 
 fclose(loghand);
 

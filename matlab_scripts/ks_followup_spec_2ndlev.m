@@ -21,9 +21,9 @@ for i=1:Num
     clear matlabbatch confiles
     matlabbatch{1}.spm.stats.factorial_design.dir = {lrn_res_dir};
     if i < 10
-        srch_str = ['^con_000' int2str(i) '.*\.img$']; 
+        srch_str = ['^con_000' int2str(i) '.*\.nii$']; 
     else
-        srch_str = ['^con_00' int2str(i) '.*\.img$']; 
+        srch_str = ['^con_00' int2str(i) '.*\.nii$']; 
     end
     dir_name = fullfile(lrn_res_dir, ['con' int2str(i)]);
     if ~exist(dir_name, 'dir')
@@ -32,8 +32,8 @@ for i=1:Num
     matlabbatch{1}.spm.stats.factorial_design.dir = {dir_name};
     confiles = {};
     matfile = fullfile(dir_name, 'SPM.mat');
-    for i=1:numel(subjects)
-        subject = subjects(i).ID;
+    for j=1:numel(subjects)
+        subject = subjects(j).ID;
         confiles = vertcat(confiles, cellstr(spm_select('FPList', fullfile(lrn_res_dir, subject), srch_str)));
     end
     matlabbatch{1}.spm.stats.factorial_design.des.t1.scans = confiles;
@@ -50,7 +50,7 @@ for i=1:Num
 
     save(fullfile(log_dir, [date, '_', 'Time', time1, time2, 'con', int2str(Num), '_followup.mat']),'matlabbatch');
     %spm_jobman('interactive',jobs);
-    output = spm_jobman('run',matlabbatch);
+     output = spm_jobman('run',matlabbatch);
 end
 %%
 

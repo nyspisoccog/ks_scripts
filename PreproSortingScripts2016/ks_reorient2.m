@@ -7,7 +7,7 @@ logdir = Data.logdir;
 reo_path = '/Volumes/LaCie/LaPrivate/soccog/August2014snapshot/reoriented_data';
 table_path = '/Volumes/LaCie/reorientdata.csv';
 reo_tab = readtable(table_path);
-subj_dir_path = '/Volumes/LaCie/ks_scripts/PreProSortingScripts2016/subj-exam-dir-matching-abbrev.csv';
+subj_dir_path = '/Volumes/LaCie/ks_scripts/PreProSortingScripts2016/subj-exam-dir-matching.csv';
 subj_dir_tab = readtable(subj_dir_path)
 
 
@@ -17,6 +17,10 @@ subj_dir_tab = readtable(subj_dir_path)
 date = Time.date;
 time1 = Time.time1;
 time2 = Time.time2;
+
+subs = {};
+ser_names = {};
+msgs = {};
 
 spm('Defaults','fMRI');
 
@@ -40,9 +44,11 @@ for i = 1:length(subjects)
                     orig_anat_dir = fullfile(data_path, subject, 'anat');
                     reo_anat_dir = fullfile(reo_path, subject, 'anat');
                     best_anat_half = sername(6);
-                else
+                elseif isdir(fullfile(reo_path, subject, 'spare_anat', sername))
                     orig_anat_dir = fullfile(data_path, subject, 'spare_anat', sername)
                     reo_anat_dir = fullfile(reo_path, subject, 'spare_anat', sername)
+                else
+                    continue
                 end
                 orig_file = spm_select('FPList', orig_anat_dir, '.*.nii');
                 orig_anat = spm_vol(orig_file)
@@ -74,6 +80,8 @@ for i = 1:length(subjects)
     matlabbatch{1}.spm.util.reorient.prefix = 'r';
     save(fullfile(logdir, ['reoranat_', date, 'Time', time1, time2, '_', subject, '.mat']), 'matlabbatch');
     output = spm_jobman('run',matlabbatch);
+    subs = vertcat(subs, subject); ser_names = vertcat(ser_names, 'anat');
+    msgs = vertcat(msgs, ['reoriented best anat file']);
     clear matlabbatch
     
     sessions = subjects(i).Runs;
@@ -104,9 +112,16 @@ for i = 1:length(subjects)
         matlabbatch{2}.spm.util.reorient.prefix = 'r';
         save(fullfile(logdir, ['reor_', sessions{j}  date, 'Time', time1, time2, '_', subject, '.mat']), 'matlabbatch');
         output = spm_jobman('run',matlabbatch); 
+        subs = vertcat(subs, subject); ser_names = vertcat(ser_names, sessions{j});
+        msgs = vertcat(msgs, ['reoriented func ' sessions{j}]);
         clear matlabbatch
           
     end    
         
-    end
 end
+
+reorient = table(subs, ser_names, msgs);
+writetable(reorient, [data_path 'reorient.csv']);
+end
+
+

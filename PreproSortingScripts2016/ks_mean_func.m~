@@ -27,22 +27,17 @@ for i=1:length(subjects)
         f{j} = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^corr.*\.nii$');
     end
     matlabbatch{1}.cfg_basicio.cfg_cd.dir = cellstr(fullfile(data_path, subject));
-    imgs = {};
     for j = 1:length(sessions)
         session = sessions{j};
         sz = size(spm_vol(f{j}));
-        c = repmat({f{j}}, sz);
-        for k = 1:sz(1)
-            c{k} = [c{k} ',' int2str(k)];
-        end
-    end
-    
+        c = repmat({f{j}}, sz)
+        d = cell(56, 1) 
+        d = deal([1:56])
         strng = 'i';
-        for k = 1:sz(1)-1
+        for l = 1:sz(1)-1
            strng = [strng int2str(k) '+i']; 
         end
         strng = [strng int2str(sz(1)) '/' int2str(sz(1))]
-    
         matlabbatch{2}.spm.util.imcalc.input = c;
         matlabbatch{2}.spm.util.imcalc.output = 'mean.nii';
         matlabbatch{2}.spm.util.imcalc.outdir = {''};

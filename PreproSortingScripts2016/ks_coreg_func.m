@@ -40,7 +40,7 @@ for i=1:numel(subjects)
 
     output={};
     for y=1:numel(sessions)
-        files=spm_select('FPList', fullfile(data_path, subject, 'func', sessions{y}), '^a.*\.nii$');
+        files=spm_select('FPList', fullfile(data_path, subject, 'func', sessions{y}), '^corr.*\.nii$');
         f_c=cellstr(files);
         output=vertcat(output,f_c);
     end 

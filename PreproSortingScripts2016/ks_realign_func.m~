@@ -32,10 +32,12 @@ for i=1:numel(subjects)
     
     
     
-    clear matlabbatch f
+    clear matlabbatch a f
     
     subject = subjects(i).ID;
     sessions = subjects(i).Runs;
+    
+    a = spm_select('FPList', fullfile(data_path, subject,'anat'), '^s.*\.img$');
     
     
     %% CHANGE WORKING DIRECTORY (useful for .ps only)
@@ -46,7 +48,7 @@ for i=1:numel(subjects)
     %% REALIGN: ESTIMATE
     %----------------------------------------------------------------------
     for j=1:length(sessions)
-        f{j} = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^r.*\.nii$');%remember to change backk to ^corr
+        f{j} = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^corr.*\.nii$');
     end
     
     for j = 1:length(sessions)
@@ -60,15 +62,16 @@ for i=1:numel(subjects)
     
     fprintf('Preprocessing subject "%s" (%s)\n',subject,sprintf('%d ',cellfun(@(x) size(x,1),f)));
     
- 
-    matlabbatch{2}.spm.spatial.realign.estimate.data = g;
+    for j=1:numel(sessions)
+        matlabbatch{2}.spm.spatial.realign.estimate.data{j} = cellstr(g{j});
+    end
+    
     matlabbatch{2}.spm.spatial.realign.estimate.eoptions.quality = 0.9;
     matlabbatch{2}.spm.spatial.realign.estimate.eoptions.sep = 4;
     matlabbatch{2}.spm.spatial.realign.estimate.eoptions.fwhm = 5;
     matlabbatch{2}.spm.spatial.realign.estimate.eoptions.rtm = 1;
     matlabbatch{2}.spm.spatial.realign.estimate.eoptions.interp = 3;
     matlabbatch{2}.spm.spatial.realign.estimate.eoptions.wrap = [0 0 0];
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.weight = '';
     
 
     

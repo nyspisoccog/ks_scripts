@@ -39,7 +39,7 @@ for i = 1:length(subjects)
     sessions = subjects(i).Runs;
     o = {};
     for y=1:length(sessions)
-        files=spm_select('FPList', fullfile(data_path, subject, 'func', sessions{y}), '^a.*\.nii$');
+        files=spm_select('FPList', fullfile(data_path, subject, 'func', sessions{y}), '^corr.*\.nii$');
         f_c=cellstr(files);
         o=vertcat(o,f_c);
     end 

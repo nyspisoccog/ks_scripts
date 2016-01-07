@@ -1,13 +1,4 @@
 
-RU <- read.csv("/Volumes/LaCie/LaPrivate/soccog/RU.csv")
-RU$type <- factor(RU$type, levels=c("S", "Y", "N"))
-library(lme4)
-RU$subject <- factor(RU$subject)
-RU.edited <- subset(RU, RU$ans != 3.5)
-RU.edited <- subset(RU.edited, RU.edited$subject != 7403)
-RU.edited <- subset(RU.edited, RU.edited$subject != 7613)
-RU.edited <- subset(RU.edited, RU.edited$subject != 7719)
-RU.edited <- subset(RU.edited, RU.edited$subject != 7659)
 RU.edited.model <- lmer(RU.edited$ans ~ RU.edited$type + (1|RU.edited$subject), REML=FALSE)
 mySumm2 <- function(.) {
   c(beta=fixef(.),sigma=sigma(.), sig01=sqrt(unlist(VarCorr(.))))

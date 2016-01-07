@@ -84,4 +84,5 @@ matlabbatch{2}.spm.tools.dartel.warp.settings.optim.its = 3;
 save(fullfile(logdir, ['Group_', date, '_', 'Time', time1, time2, '_rundartel.mat']),'matlabbatch');
 %spm_jobman('interactive',jobs);
 output = spm_jobman('run',matlabbatch);
+end
     

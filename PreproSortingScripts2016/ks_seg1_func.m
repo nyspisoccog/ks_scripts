@@ -13,10 +13,7 @@ date = time.date;
 time1 = time.time1;
 time2 = time.time2;
 
-%--------------------------------------------------------------------------
-addpath('/home/katie/spm12');   % SPM path
-addpath('/home/katie/spm12'); % path containing <editfilename.m>
-addpath('/home/katie/spm12/matlabbatch');
+
 
 %% Initialise SPM defaults
 %--------------------------------------------------------------------------
@@ -32,7 +29,7 @@ for i=1:numel(subjects)
     
     subject = subjects(i).ID;
     
-    a = spm_select('FPList', fullfile(data_path, subject,'anat'), '^s.*\.img$');
+    a = spm_select('FPList', fullfile(data_path, subject,'anat'), '^s.*\.nii$');
     
     matlabbatch{1}.cfg_basicio.cfg_cd.dir = cellstr(fullfile(data_path, subject));
     

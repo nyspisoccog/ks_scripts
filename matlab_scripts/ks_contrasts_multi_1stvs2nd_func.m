@@ -1,4 +1,4 @@
-function ks_contrasts_multi_func(Data, Time)
+function ks_contrasts_multi_1stvs2nd_func(Data, Time)
 
 spm('Defaults','fMRI');
 

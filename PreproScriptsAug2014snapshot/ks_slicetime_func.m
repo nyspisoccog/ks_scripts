@@ -15,8 +15,8 @@ time2 = time.time2;
 
 %% Set Matlab path
 %--------------------------------------------------------------------------
-addpath('/Users/katherine/spm12');   % SPM path
- % path containing <editfilename.m>
+addpath('/home/katie/spm8');   % SPM path
+addpath('/home/katie/spm8'); % path containing <editfilename.m>
 
 %% Initialise SPM defaults
 %--------------------------------------------------------------------------
@@ -35,17 +35,9 @@ for i=1:numel(subjects)
     nslices = subjects(i).NSlices;
     sliceord = subjects(i).SliceOrd;
     
-    for j=1:length(sessions)
-        f{j} = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^r.*\.nii$');%remember to change backk to ^corr
-    end
-    
-    for j = 1:length(sessions)
-        sz = size(spm_vol(f{j}));
-        c = repmat({f{j}}, sz);
-        for k = 1:sz(1)
-            c{k} = [c{k} ',' int2str(k)];
-        end
-        g{j} = c;
+    for j=1:numel(sessions)
+        f{j} = spm_select('FPList', fullfile(data_path, subject, sessions{j}), '^f.*\.img$');
+        disp( spm_select('FPList', fullfile(data_path, subject, sessions{j}), '^f.*\.img$'))
     end
     
     fprintf('Preprocessing subject "%s" (%s)\n',subject,sprintf('%d ',cellfun(@(x) size(x,1),f)));
@@ -56,24 +48,27 @@ for i=1:numel(subjects)
     
     %% SLICE TIMING CORRECTION
     %----------------------------------------------------------------------
-    for j=1:length(sessions)
-        matlabbatch{2}.spm.temporal.st.scans{j} = g{1,1};
+    for j=1:numel(sessions)
+        matlabbatch{2}.spm.temporal.st.scans{j} = cellstr(f{j});
     end
     
-        matlabbatch{2}.spm.temporal.st.nslices = nslices;
-        matlabbatch{2}.spm.temporal.st.tr = 2.2;
-        matlabbatch{2}.spm.temporal.st.ta = 2.2-(2.2/nslices);
-        matlabbatch{2}.spm.temporal.st.so = sliceord;
-        matlabbatch{2}.spm.temporal.st.refslice = 17;
-        matlabbatch{2}.spm.temporal.st.prefix = 'a';
+    matlabbatch{2}.spm.temporal.st.nslices = nslices;
+    matlabbatch{2}.spm.temporal.st.tr = 2.2;
+    matlabbatch{2}.spm.temporal.st.ta = 2.13529411764706;
+    matlabbatch{2}.spm.temporal.st.so = sliceord;
+    matlabbatch{2}.spm.temporal.st.refslice = 17;
+    matlabbatch{2}.spm.temporal.st.prefix = 'a';
     
    
     
-        %% SAVE AND RUN JOB
-       
-        save(fullfile(logdir, [subject,  '_', date, '_', 'Time', time1, time2, '_slicetime.mat']),'matlabbatch');
-        %spm_jobman('interactive',jobs);
-        output = spm_jobman('run',matlabbatch);
+    %% SAVE AND RUN JOB
+    %----------------------------------------------------------------------
+    %tstamp = clock;
+    %filen = ['slicetime_preproc', date,'Time',num2str(tstamp(4)),num2str(tstamp(5)),'.mat'];
+
+    save(fullfile(logdir, [subject, '_', date, '_', 'Time', time1, time2, '_slicetime.mat']),'matlabbatch');
+    %spm_jobman('interactive',jobs);
+    output = spm_jobman('run',matlabbatch);
     
 end
 

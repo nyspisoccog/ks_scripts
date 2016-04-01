@@ -1,7 +1,7 @@
-function ks_spec_params_func(Data, Time, Parameters)
+function ks_spec_params_wout_func(Data, Time, Parameters)
 
 data_path = Data.data_path;
-art_path = Data.art_path;
+art_path = Data.art_dir;
 lrn_res_dir = Data.lrn_res_dir;
 mem_res_dir = Data.mem_res_dir;
 bp_ons_dir = Data.bp_ons_dir;
@@ -55,7 +55,8 @@ for i=1:numel(subjects)
                 scans{scan, 1} = horzcat(func_run_str, ',', int2str(scan));
             end
             files{tally} = scans;
-            rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^r7.*\.txt$'));
+            rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^art_regression_outliers_and_movement_scorr.*\.mat$'));
+            %rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^r7.*\.txt$'));
             %files{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^sw.*\.img$'));
             %rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^rp.*\.txt$'));
         

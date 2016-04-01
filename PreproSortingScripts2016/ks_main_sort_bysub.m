@@ -11,16 +11,6 @@ Time.date = date;
 Time.time1 = time1;
 Time.time2 = time2;
 
-
- subjects = {'7403', '7404', '7408', '7412', '7414', '7418', '7430', '7432',...
-             '7436', '7443', '7453', '7458', '7474', '7477', '7478', '7480',...
-             '7498', '7508', '7521', '7533', '7534', '7542', '7558', '7561',...
-             '7562', '7575', '7580', '7607', '7619', '7623', '7638',...
-             '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
- 
-
-%subjects = {'7403'};
-
 standard_runs = {...
    'run1L1', 'run1L2', 'run1L3', 'run1L4',...
    'run1L5', 'run1L6', 'run1M1', 'run1M2',...
@@ -70,22 +60,25 @@ end
 mkdir(Data.logdir);
 logdir = Data.logdir;
 
+
+    
 tstamp = clock;
-filen = ['PreProcLog',date,'Time',num2str(tstamp(4)),num2str(tstamp(5)),'.txt'];
+filen = ['PreProcLog', subjects{i}, date,'Time',num2str(tstamp(4)),num2str(tstamp(5)),'.txt'];
 logname = fullfile(logdir, filen);
 loghand = fopen(logname,'wt');
 fprintf(loghand,filen);
 fprintf(loghand,'\nCONFIGURATION');
 fprintf(loghand,'\n Subjects');
 
+
 for i = 1:numel(Data.Subjects)
     subject = Data.Subjects(i).ID;
 	fprintf(loghand,'\n  %s', subject);
 end
 
-ks_conv_dicoms(Data, Time)
-ks_3dto4d(Data, Time)
-ks_reorient2(Data, Time)
+ks_conv_dicoms_bysub(Data, Time)
+ks_3dto4d_bysub(Data, Time)
+ks_reorient2_bysub(Data, Time)
 
 
 fclose(loghand);

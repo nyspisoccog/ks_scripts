@@ -1,4 +1,5 @@
 clear Data
+dbstop if error
 
 %scriptDir = '/home/katie/ks_scripts/matlab_scripts/';
 %scriptDir = '/Volumes/LaCie/ks_scripts/matlab_scripts/';
@@ -20,17 +21,19 @@ subjects = {'7404', '7408', '7412', '7414', '7418', '7430', '7432',...
             '7498', '7508', '7521', '7533', '7534', '7542', '7558', '7561',...
             '7562', '7575', '7580', '7607', '7619', '7623', '7638',...
             '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
+        
+subjects = {'7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
 
 
 st_lrn_runs = {...
   'run1L1', 'run1L2', 'run1L3', 'run1L4', 'run1L5', 'run1L6',...
   'run2L1', 'run2L2', 'run2L3', 'run2L4','run2L5', 'run2L6'...
-  }
+  };
 
 st_mem_runs = {...
   'run1M1', 'run1M2', 'run1M3', 'run1M4', 'run1M5', 'run1M6',...
   'run2M1', 'run2M2', 'run2M3', 'run2M4','run2M5', 'run2M6'...
-  }
+  };
 
 standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
@@ -40,38 +43,8 @@ standard_slices = {...
 %Data.data_path = '/media/truecrypt1/SocCog/preproc_data/';
 %Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data';
 Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/' date time1 time2]; 
-%Data.res_dir = ['/media/truecrypt1/SocCog/test/all_conds/20-Nov-20141728']   %no first half that I ran on cluster
-%Data.res_dir = ['/media/truecrypt1/SocCog/test/all_conds/30-Oct-20141358']; first group
-%analysis w 1024 hpf
-%Data.res_dir = ['/media/truecrypt1/SocCog/test/all_conds/10-Nov-20141711']% first groupanalysis
-%Data.res_dir = ['/media/truecrypt1/SocCog/test/noMV_noval_1stvs2nd'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/test/noMV_noval_tmod'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/bp_noMV_noval_1stvs2nd'];
-%Data.res_dir = ['/Volumes/Lacie/soccog/results/noMV_noval_1stvs2nd_wbp'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/bpsanitycheck'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/noMV_noval_1stvs2nd_wbp_fact'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/noMV_noval_1stvs2nd_wbp_cov']
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/noMV_noval_2nd_cov'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/noMV_noval_onlycov'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/poster_fllwupcons_1stv2nd_wbp'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/TEST'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/noMV_noval_1stvs2nd_wbp_cov_new'];
-%Data.res_dir = ['/media/truecrypt1/SocCog/results/bp_stick_1stv2nd'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/new2ndlevforSANS'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/new1stlevforSANS'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/new1stlevtest12'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/newpreprocsanitycheck'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/oldpreprocmemsanitycheck'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/block1v2'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/newoldpreproc_sanitycheck'];
-Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/frstv2ndwbp_fixmicrotime'];
-%Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/newppsanchec_fixmt'];
-Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/nobp'];
-Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/force_mask'];
-Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/frstv2nd_fixmt_newpreproc'];
-Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/newpp_fixmt_fm'];
-Data.res_dir = ['/Volumes/LaCie/LaPrivate/soccog/results/newpp_fixmt_4thresh'];
+Data.art_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
+Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/conn_denoised_nobpfx';
 
 Data.log_dir = [Data.res_dir '/logdir'];
 Data.lrn_res_dir = fullfile(Data.res_dir, 'lrn');
@@ -178,35 +151,27 @@ for l=1:numel(param_list)
     fprintf(loghand, '%s %s\n', [param_list{l}.name, param_list{l}.val]);
 end
 
-%ks_spec_bpsanitycheck_mem_func2(Data, Time, Parameters);
-ks_spec_params_func(Data, Time, Parameters);
-%ks_spec_bpsanitycheck_func(Data, Time, Parameters);
-%ks_spec_bpsanitycheck_lrn_func(Data, Time, Parameters);
-ks_conds_estimate_func(Data,Time);
-
-%ks_conds_estimate_mem_func(Data, Time);
-%ks_bpcontrast_mem_func(Data, Time, Parameters);
-%ks_bpcontrast_func(Data, Time, Parameters);
-%ks_conds_estimate_func(Data, Time);
-%ks_contrasts_multi_1stvs2nd_nobp_func(Data, Time);
-ks_contrasts_multi_1stvs2nd_func(Data, Time);
-%ks_followup_spec_2ndlev(Data, Time, 7)
-%ks_contrasts_2ndlev_func(Data, Time, 7)
-%ks_contrasts_multi_1stvs2nd_bpstick_func(Data, Time)
+functions(1).log = 'ks_spec_params_wout_func(Data,Time,Parameters)';
+functions(2).log = 'ks_conn_batch(Data)';
 
 
-%ks_contrasts_multi_1stvs2nd_cov_func(Data, Time)
 
-%ks_1way_cov_spec_2ndlev(Data, Time)
-%ks_1way_onlycov_spec_2ndlev(Data, Time)
-%ks_1way_cov_est_2ndlev(Data, Time)
 
-%ks_contrasts_multi_2nd_cov_func(Data, Time)
 
-%ks_contrasts_multi_1stvs2nd_followup_func(Data, Time)
+dirs(1).log = 'data_path=/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
+dirs(2).log = 'art_dir=/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
+dirs(3).log = 'res_dir=/Volumes/LaCie/LaPrivate/soccog/conn_denoised_nobpfx';
 
-%ks_contrasts_block_1stvs2nd_func(Data, Time)
 
-%ks_followup_spec_2ndlev(Data, Time, 7)
-%ks_contrasts_2ndlev_func(Data, Time, 7)
-%ks_art_batch(Data,Time)
+
+
+ks_spec_params_wout_func(Data, Time, Parameters);
+ks_conn_batch(Data);
+
+for j = 1:length(functions)
+    fprintf(loghand, '%s\n', functions(j).log)
+end
+
+for j = 1:length(dirs)
+    fprintf(loghand, '%s\n', dirs(j).log)
+end

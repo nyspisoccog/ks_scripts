@@ -19,37 +19,29 @@ Time.time2 = time2;
              '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
  
 
-subjects = {'7645'};
-
 standard_runs = {...
-   'run1L1', 'run1L2', 'run1L3', 'run1L4',...
-   'run1L5', 'run1L6', 'run1M1', 'run1M2',...
-   'run1M3', 'run1M4', 'run1M5', 'run1M6',...
-   'run2L1', 'run2L2', 'run2L3', 'run2L4',...
-   'run2L5', 'run2L6', 'run2M1', 'run2M2',...
-   'run2M3', 'run2M4', 'run2M5', 'run2M6', ... 
+   'run1L1', 'run1L2', 'run1L3', 'run1L4','run1L5', 'run1L6',...
+   'run2L1', 'run2L2', 'run2L3', 'run2L4','run2L5', 'run2L6' 
  };
-
-standard_runs = {'run1L1', 'run1L2'}
 
 standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     };
 
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_test/preproc_data_new';
+Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new/';
 Data.logdir = fullfile(Data.data_path, 'logdir') ;   
 
 for i = 1:numel(subjects)
     Data.Subjects(i).ID = char(subjects(i));
     if strcmp(subjects(i), '7403')
-        runs = standard_runs(1:19);
-    elseif strcmp(subjects(i), '7458')
-        runs =  standard_runs(1:23);
-    elseif strcmp(subjects(i), '7561')
-        runs = horzcat(standard_runs(1:7), standard_runs(9:24));
-    elseif strcmp(subjects(i) ,'7726')
-        runs = horzcat(standard_runs(1:12), standard_runs(14:24));
+        runs = standard_runs(1:7);
+    elseif strcmp(subjects(i), '7659')
+        runs =  standard_runs(1:6);
+    elseif strcmp(subjects(i), '7719')
+        runs =  standard_runs(1:6);
+    elseif strcmp(subjects(i), '7726')
+        runs = horzcat(standard_runs(1:6), standard_runs(8:12));
     else runs = standard_runs;
     end
     Data.Subjects(i).Runs = runs;

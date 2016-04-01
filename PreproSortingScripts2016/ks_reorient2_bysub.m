@@ -145,11 +145,11 @@ for i = 1:length(subjects)
         clear matlabbatch
           
     end    
-        
+reorient = table(subs, ser_names, msgs);
+writetable(reorient, [data_path subject 'reorient.csv']);      
 end
 
-reorient = table(subs, ser_names, msgs);
-writetable(reorient, [data_path 'reorient.csv']);
+
 end
 
 

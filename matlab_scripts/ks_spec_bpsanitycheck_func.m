@@ -14,6 +14,14 @@ sess_type = {'lrn'};
 %%initialize defaults
 
 spm('Defaults','fMRI');
+spm_get_defaults('defaults.mask.thresh', 0);
+spm_get_defaults('defaults.stats.maxres', Inf);
+
+try 
+    pyversion /usr/bin/python2.7
+
+py.sys.path.append('/Users/katherine/PycharmProjects/untitled')
+py.set_resid_delete.svdelres('svres');
 
 spm_jobman('initcfg');
 

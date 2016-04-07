@@ -16,6 +16,8 @@ subjects = Data.Subjects;
 
 spm('Defaults','fMRI');
 
+spm_get_defaults('defaults.mask.thresh', 0);
+
 spm_jobman('initcfg');
 
 for i=1:numel(subjects)

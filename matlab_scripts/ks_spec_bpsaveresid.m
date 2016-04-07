@@ -1,5 +1,7 @@
-function ks_spec_bpsanitycheck_func(Data, Time, Parameters)
-%generati
+function ks_spec_bpsvresid(Data, Time, Parameters)
+%generating residual files for Martin's sFIR function with motion
+%parameters and art outliers and button press regressed out.  Data are also
+%1024 filtered.  Implicit masking is suppressed
 subjects = Data.Subjects;
 data_path = Data.data_path;
 lrn_res_dir = Data.lrn_res_dir;
@@ -15,13 +17,6 @@ sess_type = {'lrn'};
 
 spm('Defaults','fMRI');
 spm_get_defaults('defaults.mask.thresh', 0);
-spm_get_defaults('defaults.stats.maxres', Inf);
-
-try 
-    pyversion /usr/bin/python2.7
-
-py.sys.path.append('/Users/katherine/PycharmProjects/untitled')
-py.set_resid_delete.svdelres('svres');
 
 spm_jobman('initcfg');
 

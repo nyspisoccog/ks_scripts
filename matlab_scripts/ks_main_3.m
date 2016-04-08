@@ -43,10 +43,11 @@ standard_slices = {...
 %Data.data_path = '/media/truecrypt1/SocCog/preproc_data/';
 %Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data';
 %Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/conn_splitfiles_1024_wbp/lrn';
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
+%Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
 Data.art_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 %Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/conn_256filter/';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/bpoutsaveresid';
+Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/results/bpoutsaveresid';
+Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/sFIR_event_art';
 
 Data.log_dir = [Data.res_dir '/logdir'];
 Data.lrn_res_dir = fullfile(Data.res_dir, 'lrn');
@@ -114,8 +115,8 @@ end
 
 
 
-functions(1).log = 'ks_spec_bpsaveresid';
-functions(2).log = 'ks_main_3';
+functions(1).log = 'ks_fit_hrf_conc';
+%functions(2).log = 'ks_merge_res';
 
 for f=1:length(functions)
     src = fullfile(script_dir, [functions(f).log '.m']);
@@ -125,32 +126,24 @@ end
 
 
 
-Parameters.buttonpress.name = 'buttonpress';
-Parameters.buttonpress.val = 'y';
-Parameters.tmod.name = 'tmod';
-Parameters.tmod.val = 'n';
-Parameters.timed.name = 'timed';
-Parameters.timed.val = 'y';
-Parameters.dispersed.name = 'dispersed';
-Parameters.dispersed.val = 'y';
-Parameters.motion.name = 'motion';
-Parameters.motion.val = 'y';
-Parameters.ans.name = 'ans';
-Parameters.ans.val = 'n';
-Parameters.RT.name = 'RT';
-Parameters.RT.val = 'n';
- 
-param_list = {Parameters.buttonpress, Parameters.tmod, Parameters.timed, ...
-    Parameters.dispersed, Parameters.motion, Parameters.ans, Parameters.RT};
-%
+Parameters.bp.name = 'buttonpress';
+Parameters.bp.val = 'n';
+Parameters.method.name = 'method';
+Parameters.method.val = 'FIR';
+
+param_list = {Parameters.bp, Parameters.method};
+
+ks_fit_hrf_conc(Data, Parameters);
 
 %ks_hrf_sancheck_conc(Data, Parameters)
 
 %ks_spec_params_wout_func(Data, Time, Parameters);
 
 
-ks_spec_bpsaveresid(Data, Time, Parameters);
-ks_conds_estimate_func(Data, Time);
+%ks_spec_bpsaveresid(Data, Time, Parameters);
+%ks_conds_estimate_func(Data, Time);
+
+%ks_merge_res(Data);
 
 %ks_bpcontrast_func(Data, Time, Parameters);
 

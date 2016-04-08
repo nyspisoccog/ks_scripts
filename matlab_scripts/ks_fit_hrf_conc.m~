@@ -104,7 +104,7 @@ for nsub=1:length(subjects)
     cd(dr)
     
     dat =fmri_data(fullfile(data_path, sess_type{lm}, subject.ID,...
-        [subject.ID, 'concres.nii']));
+        [subject.I
     
     if strcmp(Parameters.method.val, 'FIR')
         [params_obj, hrf_obj] = hrf_fit(dat,TR, Runc, T,'FIR', 1);

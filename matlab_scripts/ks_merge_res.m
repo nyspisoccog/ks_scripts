@@ -15,7 +15,7 @@ subjects = Data.Subjects;
 for nsub=1:length(subjects)
     sessions = subjects(nsub).lrn_runs;
     subject = subjects(nsub);
-    files = spm_select('FPList', fullfile(res_dir, subject.ID), '^Res_*.nii');
+    files = spm_select('FPList', fullfile(res_dir, subject.ID), '^Res_.*\.nii');
     newfile = fullfile(res_dir, subject.ID, [subject.ID 'concres.nii']);
     spm_file_merge(files,newfile);
 end

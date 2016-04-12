@@ -29,7 +29,7 @@ for i=1:numel(subjects)
         end
         subs(i).matlabbatch{1}.spm.stats.fmri_est.spmmat = cellstr(fullfile(resdir, 'SPM.mat'));
         subs(i).matlabbatch{1}.spm.stats.fmri_est.method.Classical = 1;
-        subs(i).matlabbatch{1}.spm.stats.fmri_est.write_residuals = 1;
+        subs(i).matlabbatch{1}.spm.stats.fmri_est.write_residuals = 0;
         matlabbatch = subs(i).matlabbatch;
         save(fullfile(logdir, [subject '_conds_estimate.mat']), 'matlabbatch');
     end

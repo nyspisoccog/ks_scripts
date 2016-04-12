@@ -1,6 +1,7 @@
 function ks_spec_bpsvresid(Data, Time, Parameters)
 %generating residual files for Martin's sFIR function with motion
-%parameters and art outliers and button press regressed out.  Data are also
+%parameters and art outliers.  Don't regress out button press: this is for
+%the sanity check. Data are also
 %1024 filtered.  Implicit masking is suppressed
 subjects = Data.Subjects;
 data_path = Data.data_path;
@@ -63,17 +64,19 @@ for i=1:numel(subjects)
     
     for k = 1:tally
         matlabbatch{2}.spm.stats.fmri_spec.sess(k).scans = files{k};
-        matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.name = 'button_press';
-        matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.onset = onsets{k};
-        matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.duration = 0;
-        matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.tmod = 0;
-        matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.pmod = struct('name', {}, 'param', {}, 'poly', {});
-        matlabbatch{2}.spm.stats.fmri_spec.sess(k).multi = {''};
-        matlabbatch{2}.spm.stats.fmri_spec.sess(k).regress = struct('name', {}, 'val', {});
         matlabbatch{2}.spm.stats.fmri_spec.sess(k).multi_reg = rp{k};
         matlabbatch{2}.spm.stats.fmri_spec.sess(k).hpf = 1024;
+        if Parameters.buttonpress.val == 'y'
+            matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.name = 'button_press';
+            matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.onset = onsets{k};
+            matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.duration = 0;
+            matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.tmod = 0;
+            matlabbatch{2}.spm.stats.fmri_spec.sess(k).cond.pmod = struct('name', {}, 'param', {}, 'poly', {});
+            matlabbatch{2}.spm.stats.fmri_spec.sess(k).multi = {''};
+            matlabbatch{2}.spm.stats.fmri_spec.sess(k).regress = struct('name', {}, 'val', {});
+            
+        end
     end
-
     matlabbatch{2}.spm.stats.fmri_spec.fact = struct('name', {}, 'levels', {});
     matlabbatch{2}.spm.stats.fmri_spec.bases.hrf.derivs = [1 0];
     matlabbatch{2}.spm.stats.fmri_spec.volt = 1;

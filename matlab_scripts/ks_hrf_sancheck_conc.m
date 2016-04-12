@@ -1,4 +1,4 @@
-function ks_fit_hrf_conc(Data, Parameters)
+function ks_hrf_sancheck_conc(Data, Parameters)
 
 addpath(genpath('/Users/katherine/CanlabCore-Master'));
 addpath(genpath('/Users/katherine/spm12'));
@@ -52,8 +52,8 @@ for nsub=1:length(subjects)
    
     cd(dr)
     
-    dat =fmri_data(fullfile(data_path, sess_type{lm}, subject.ID, 'conn_denoise', 'results', ...
-         'preprocessing', 'niftiDATA_Subject001_Condition000.nii'));
+    dat =fmri_data(fullfile(data_path, sess_type{lm}, subject.ID, ...
+        [subject.ID 'concres.nii']));
     
     if strcmp(Parameters.method.val, 'FIR')
         [params_obj, hrf_obj] = hrf_fit(dat,TR, Runc, T,'FIR', 1);

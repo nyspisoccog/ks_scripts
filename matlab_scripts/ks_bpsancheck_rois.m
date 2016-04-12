@@ -10,29 +10,29 @@ subjects = {'7404', '7408', '7412', '7414', '7418', '7430', '7432',...
             '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
 
 
-resdir = '/Volumes/LaCie/LaPrivate/soccog/results/hrfsancheck/lrn/';
-
+resdir = '/Volumes/LaCie/LaPrivate/soccog/results/hrfsancheck_noconn/lrn/';
+roidir = '/Volumes/LaCie/LaPrivate/soccog/results/hrfsancheck/lrn/'
 
 marsbar('on')
 
 % Set up the SPM defaults
 spm('defaults', 'fmri');
 
-LBA4img = fullfile(resdir, 'ROI_LBA4_MNI.img');
-RBA4img = fullfile(resdir, 'ROI_RBA4_MNI.img');
-Lroi = maroi_image(struct('vol', spm_vol(LBA4img), 'binarize',0,...
-        'func', 'img'));
-Rroi = maroi_image(struct('vol', spm_vol(RBA4img), 'binarize',0,...
-        'func', 'img'));
-saveroi(Lroi, fullfile(resdir, 'LBA4.mat'));
-saveroi(Rroi, fullfile(resdir, 'RBA4.mat'));
+% LBA4img = fullfile(resdir, 'ROI_LBA4_MNI.img');
+% RBA4img = fullfile(resdir, 'ROI_RBA4_MNI.img');
+% Lroi = maroi_image(struct('vol', spm_vol(LBA4img), 'binarize',0,...
+%         'func', 'img'));
+% Rroi = maroi_image(struct('vol', spm_vol(RBA4img), 'binarize',0,...
+%         'func', 'img'));
+% saveroi(Lroi, fullfile(resdir, 'LBA4.mat'));
+% saveroi(Rroi, fullfile(resdir, 'RBA4.mat'));
 
 for nsub = 1:length(subjects)
     subject = subjects(nsub);
     fname = fullfile(resdir, subject, 'HRF_params_cond0001.img,1');
     fname = fname{1, 1};
-    LBA4 = maroi(fullfile(resdir, 'LBA4.mat'));
-    RBA4 = maroi(fullfile(resdir, 'RBA4.mat'));
+    LBA4 = maroi(fullfile(roidir, 'LBA4.mat'));
+    RBA4 = maroi(fullfile(roidir, 'RBA4.mat'));
     LmarsY = get_marsy(LBA4, fname, 'mean', 'v');
     RmarsY = get_marsy(RBA4, fname, 'mean', 'v');
     Lrno = marsbar('get_region', region_name(LmarsY));

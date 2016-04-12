@@ -1,6 +1,6 @@
 
 
-function ks_spec_mixedblockevent_(Data, Time, Parameters)
+function ks_spec_mixedblockevent(Data, Time, Parameters)
 
 data_path = Data.data_path;
 lrn_res_dir = Data.lrn_res_dir;
@@ -18,6 +18,8 @@ subjects = Data.Subjects;
 spm('Defaults','fMRI');
 
 spm_jobman('initcfg');
+
+spm_get_defaults('defaults.mask.thresh', 0);
 
 for i=1:numel(subjects)
     for lm = 1:numel(sess_type)
@@ -49,14 +51,15 @@ for i=1:numel(subjects)
 
             tally = tally + 1;
 
-            func_run_str = fullfile(data_path, subject, sessions{j}, ...
-                [subject sessions{j} '4D.nii']);
+            func_run_str = fullfile(data_path, subject, 'func', sessions{j}, ...
+                ['swcorr_r' subject sessions{j} '4D.nii']);
             scans = cell(56, 1);
             for scan = 1:56
                 scans{scan, 1} = horzcat(func_run_str, ',', int2str(scan));
             end
             files{tally} = scans;
-            rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^r7.*\.txt$'));
+            rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), ...
+                '^art_regression_outliers_and.*\.mat$'));
             %files{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^sw.*\.img$'));
             %rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^rp.*\.txt$'));
 

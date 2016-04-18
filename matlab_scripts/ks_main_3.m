@@ -46,7 +46,7 @@ standard_slices = {...
 Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
 Data.art_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 %Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/conn_256filter/';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/mixedblockevent_art';
+Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/trymem';
 
 Data.log_dir = [Data.res_dir '/logdir'];
 Data.lrn_res_dir = fullfile(Data.res_dir, 'lrn');
@@ -115,10 +115,9 @@ end
 
 
 functions(1).log = 'ks_main_3';
-functions(2).log = 'ks_spec_mixedblockevent_func';
+functions(2).log = 'ks_spec_params_wout_func';
 functions(3).log = 'ks_conds_estimate_func';
-functions(4).log = 'ks_contrasts_mixed_func';
-functions(5).log = 'ks_followup_spec_2ndlev';
+
 
 
 for f=1:length(functions)
@@ -152,7 +151,7 @@ param_list = {Parameters.buttonpress, Parameters.tmod, Parameters.timed, ...
 
 
 
-%ks_spec_params_wout_func(Data, Time, Parameters);
+ks_spec_params_wout_func(Data, Time, Parameters);
 
 
 %ks_spec_bpsaveresid(Data, Time, Parameters);
@@ -166,10 +165,8 @@ param_list = {Parameters.buttonpress, Parameters.tmod, Parameters.timed, ...
 
 %ks_followup_spec_2ndlev(Data, Time, 7);
 
-ks_spec_mixedblockevent_func(Data, Time, Parameters)
 ks_conds_estimate_func(Data, Time);
-ks_contrasts_mixed_func(Data, Time);
-ks_followup_spec_2ndlev(Data, Time, 15)
+
 
 
 dirs(1).log = ['data_path=' Data.data_path];

@@ -46,8 +46,7 @@ standard_slices = {...
 Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
 Data.art_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 %Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/conn_256filter/';
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/results/saveresid_leavebp';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/hrfsancheck_noconn';
+Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/trymem';
 
 Data.log_dir = [Data.res_dir '/logdir'];
 Data.lrn_res_dir = fullfile(Data.res_dir, 'lrn');
@@ -116,10 +115,9 @@ end
 
 
 functions(1).log = 'ks_main_3';
-functions(2).log = 'ks_spec_mixedblockevent_func
+functions(2).log = 'ks_spec_params_wout_func';
 functions(3).log = 'ks_conds_estimate_func';
-functions(4).log = 'ks_contrasts_mixed_func';
-functions(5).log = 'ks_followup_spec_2ndlev';
+
 
 
 for f=1:length(functions)
@@ -129,12 +127,26 @@ for f=1:length(functions)
 end
 
 
-Parameters.bp.name = 'buttonpress';
-Parameters.bp.val = 'y';
-Parameters.method.name = 'tmod';
-Parameters.method.val = 'FIR';
 
-param_list = {Parameters.bp, Parameters.method};
+Parameters.buttonpress.name = 'buttonpress';
+Parameters.buttonpress.val = 'y';
+Parameters.tmod.name = 'tmod';
+Parameters.tmod.val = 'n';
+Parameters.timed.name = 'timed';
+Parameters.timed.val = 'y';
+Parameters.dispersed.name = 'dispersed';
+Parameters.dispersed.val = 'y';
+Parameters.motion.name = 'motion';
+Parameters.motion.val = 'y';
+Parameters.ans.name = 'ans';
+Parameters.ans.val = 'n';
+Parameters.RT.name = 'RT';
+Parameters.RT.val = 'n';
+ 
+param_list = {Parameters.buttonpress, Parameters.tmod, Parameters.timed, ...
+    Parameters.dispersed, Parameters.motion, Parameters.ans, Parameters.RT};
+%
+
 
 
 

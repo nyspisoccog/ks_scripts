@@ -35,15 +35,17 @@ Data.logdir = fullfile(Data.data_path, 'logdir') ;
 for i = 1:numel(subjects)
     Data.Subjects(i).ID = char(subjects(i));
     if strcmp(subjects(i), '7403')
-        runs = standard_runs(1:6);
+        runs = standard_runs(1:7);
     elseif strcmp(subjects(i), '7458')
-        runs = standard_runs(1:11);
+        runs = standard_runs(
     elseif strcmp(subjects(i), '7561')
         runs = horzcat(standard_runs(1), standard_runs(3:12));
     elseif strcmp(subjects(i), '7659')
         runs =  standard_runs(1:6);
     elseif strcmp(subjects(i), '7719')
         runs =  standard_runs(1:6);
+    elseif strcmp(subjects(i), '7726')
+        runs = horzcat(standard_runs(1:6), standard_runs(8:12));
     else runs = standard_runs;
     end
     Data.Subjects(i).Runs = runs;

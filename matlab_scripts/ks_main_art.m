@@ -48,7 +48,7 @@ Time.time2 = time2;
 subjects = {'7404', '7408', '7412', '7414', '7418', '7430', '7432',...
             '7436', '7443a', '7443b', '7453', '7458', '7474', '7477',...
             '7478', '7480', '7498', '7508', '7521', '7533', '7534',...
-            '7542', '7558', '7561', '7562a', '7562b', '7575', '7580', '7607',...
+            '7542', '7558', '7561', '7562', '7562', '7575', '7580', '7607',...
             '7619', '7623', '7638','7641', '7645', '7648', '7649',...
             '7659', '7714', '7719', '7726'};
 
@@ -73,7 +73,7 @@ standard_slices = {...
 
 Data.data_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 Data.motion_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/frstv2nd_fixmt_newpreproc';
+Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/mem_firstlev';
 
 
 Data.log_dir = [Data.res_dir '/logdir'];
@@ -118,24 +118,20 @@ for i = 1:numel(subjects)
     elseif strcmp(subjects(i), '7436')
         lrn_runs = st_lrn_runs(2:12);
         mem_runs = st_mem_runs;
+    elseif strcmp(subjects(i), '7443a')
+        lrn_runs = st_lrn_runs;
+        mem_runs = st_mem_runs;
+        portion = [1:6];
+    elseif strcmp(subjects(i), '7443b')
+        lrn_runs = st_lrn_runs;
+        mem_runs = st_mem_runs;
+        portion = [7:12];
     elseif strcmp(subjects(i), '7641')
         lrn_runs = horzcat(st_lrn_runs(1:6), st_lrn_runs(8:12));
         mem_runs = st_mem_runs;
     elseif strcmp(subjects(i), '7458')
         lrn_runs = st_lrn_runs;
         mem_runs = st_mem_runs(1:11);
-    elseif strcmp(subjects(i), '7443a')
-        lrn_runs = st_lrn_runs;
-        portion = [1:6];
-    elseif strcmp(subjects(i), '7443b')
-        lrn_runs = st_lrn_runs;
-        portion = [7:12];
-    elseif strcmp(subjects(i), '7562a')
-        lrn_runs = st_lrn_runs;
-        portion = [1:6];
-    elseif strcmp(subjects(i), '7562b')
-        lrn_runs = st_lrn_runs;
-        portion = [7:12];
     elseif strcmp(subjects(i), '7561')
         lrn_runs = st_lrn_runs;
         mem_runs = horzcat(st_mem_runs(1), st_mem_runs(3:12));
@@ -143,10 +139,10 @@ for i = 1:numel(subjects)
         mem_runs = st_mem_runs;
         lrn_runs = horzcat(st_lrn_runs(1:6), st_lrn_runs(8:12));
     elseif strcmp(subjects(i), '7659')
-        mem_runs = st_mem_runs;
+        mem_runs = st_mem_runs(1:6);
         lrn_runs = st_lrn_runs(1:6);
     elseif strcmp(subjects(i), '7719')
-        mem_runs = st_mem_runs;
+        mem_runs = st_mem_runs(1:6);
         lrn_runs = st_lrn_runs(1:6);
     else
         lrn_runs = st_lrn_runs;
@@ -180,7 +176,7 @@ functions(1).log = 'ks_art_batch';
 
 dirs(1).log = 'data_dir=/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 dirs(2).log = 'motion_dir=/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
-dirs(3).log = 'res_dir=/Volumes/LaCie/LaPrivate/soccog/results/frstv2nd_fixmt_newpreproc';
+dirs(3).log = 'res_dir=/Volumes/LaCie/LaPrivate/soccog/results/mem_firstlev';
 
 for j = 1:length(dirs)
     fprintf(loghand, '%s\n', dirs(j).log)

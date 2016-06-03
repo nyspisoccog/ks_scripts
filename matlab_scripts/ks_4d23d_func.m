@@ -19,7 +19,7 @@ for i=1:length(subjects)
         sessions = subjects(i).Runs;
         
         for j = 1:length(sessions)
-            if strfind(sessions{j}, 'L') ~= -1 %I only prerocessed the Ls
+            if strfind(sessions{j}, 'M') ~= -1 %I only prerocessed the Ls
                disp(subject)
                disp(sessions{j})
                clear matlabbatch

@@ -22,9 +22,8 @@ subjects = {'7404', '7408', '7412', '7414', '7418', '7430', '7432',...
             '7498', '7508', '7521', '7533', '7534', '7542', '7558', '7561',...
             '7562', '7575', '7580', '7607', '7619', '7623', '7638',...
             '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
-        
-      
 
+        
 st_lrn_runs = {...
   'run1L1', 'run1L2', 'run1L3', 'run1L4', 'run1L5', 'run1L6',...
   'run2L1', 'run2L2', 'run2L3', 'run2L4','run2L5', 'run2L6'...
@@ -46,7 +45,7 @@ standard_slices = {...
 Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
 Data.art_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 %Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/conn_256filter/';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/trymem';
+Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/m1stlev';
 
 Data.log_dir = [Data.res_dir '/logdir'];
 Data.lrn_res_dir = fullfile(Data.res_dir, 'lrn');
@@ -96,10 +95,10 @@ for i = 1:numel(subjects)
         mem_runs = st_mem_runs;
         lrn_runs = horzcat(st_lrn_runs(1:6), st_lrn_runs(8:12));
     elseif strcmp(subjects(i), '7659')
-        mem_runs = st_mem_runs;
+        mem_runs = st_mem_runs(1:6);
         lrn_runs = st_lrn_runs(1:6);
     elseif strcmp(subjects(i), '7719')
-        mem_runs = st_mem_runs;
+        mem_runs = st_mem_runs(1:6);
         lrn_runs = st_lrn_runs(1:6);
     else
         lrn_runs = st_lrn_runs;
@@ -117,6 +116,7 @@ end
 functions(1).log = 'ks_main_3';
 functions(2).log = 'ks_spec_params_wout_func';
 functions(3).log = 'ks_conds_estimate_func';
+
 
 
 
@@ -148,24 +148,8 @@ param_list = {Parameters.buttonpress, Parameters.tmod, Parameters.timed, ...
 %
 
 
-
-
-
-ks_spec_params_wout_func(Data, Time, Parameters);
-
-
-%ks_spec_bpsaveresid(Data, Time, Parameters);
-
-
-%ks_merge_res(Data);
-
-%ks_hrf_sancheck_conc(Data, Parameters)
-
-%ks_bpcontrast_func(Data, Time, Parameters);
-
-%ks_followup_spec_2ndlev(Data, Time, 7);
-
-ks_conds_estimate_func(Data, Time);
+ks_spec_params_wout_func(Data, Time, Parameters)
+ks_conds_estimate_func(Data, Time)
 
 
 

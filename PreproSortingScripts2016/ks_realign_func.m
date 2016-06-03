@@ -46,7 +46,7 @@ for i=1:numel(subjects)
     %% REALIGN: ESTIMATE
     %----------------------------------------------------------------------
     for j=1:length(sessions)
-        f{j} = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^r.*\.nii$');%remember to change backk to ^corr
+        f{j} = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^corr.*\.nii$');%remember to change backk to ^corr
     end
     
     for j = 1:length(sessions)
@@ -61,15 +61,16 @@ for i=1:numel(subjects)
     fprintf('Preprocessing subject "%s" (%s)\n',subject,sprintf('%d ',cellfun(@(x) size(x,1),f)));
     
  
-    matlabbatch{2}.spm.spatial.realign.estimate.data = g;
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.quality = 0.9;
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.sep = 4;
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.fwhm = 5;
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.rtm = 1;
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.interp = 3;
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.wrap = [0 0 0];
-    matlabbatch{2}.spm.spatial.realign.estimate.eoptions.weight = '';
-    
+    matlabbatch{2}.spm.spatial.realign.estwrite.data = g;
+    matlabbatch{2}.spm.spatial.realign.estwrite.eoptions.quality = 0.9;
+    matlabbatch{2}.spm.spatial.realign.estwrite.eoptions.sep = 4;
+    matlabbatch{2}.spm.spatial.realign.estwrite.eoptions.fwhm = 5;
+    matlabbatch{2}.spm.spatial.realign.estwrite.eoptions.rtm = 1;
+    matlabbatch{2}.spm.spatial.realign.estwrite.eoptions.interp = 4;
+    matlabbatch{2}.spm.spatial.realign.estwrite.eoptions.wrap = [0 0 0];
+    matlabbatch{2}.spm.spatial.realign.estwrite.eoptions.weight = '';
+    matlabbatch{2}.spm.spatial.realign.estwrite.roptions.mask = 1;
+    matlabbatch{2}.spm.spatial.realign.estwrite.roptions.which = [0 1];
 
     
     %% SAVE AND RUN JOB

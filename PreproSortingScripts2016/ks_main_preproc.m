@@ -1,4 +1,5 @@
 clear Data
+dbstop if error
 
 rmpath('/Users/katherine/spm8')
 addpath('/Users/katherine/spm12')
@@ -29,13 +30,13 @@ standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     };
 
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new_mem/';
+Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new/';
 Data.logdir = fullfile(Data.data_path, 'logdir') ;   
 
 for i = 1:numel(subjects)
     Data.Subjects(i).ID = char(subjects(i));
     if strcmp(subjects(i), '7403')
-        runs = standard_runs(1:6);
+        runs = standard_runs(1:7);
     elseif strcmp(subjects(i), '7458')
         runs = standard_runs(1:11);
     elseif strcmp(subjects(i), '7561')
@@ -71,39 +72,42 @@ for i = 1:numel(Data.Subjects)
 	fprintf(loghand,'\n  %s', subject);
 end
 
-ks_realign_func(Data, Time)
-fprintf(loghand, 'ks_realign_func\n');
-fprintf(loghand, 'mean image of functional runs calculated');
 
-
-ks_seg1_func(Data, Time)
-fprintf(loghand, 'ks_seg1_func\n');
-fprintf(loghand, 'segmenting original T1 completed\n');
-
-ks_strip_func(Data, Time)
- 
-fprintf(loghand, 'ks_strip_func\n');
-fprintf(loghand, 'skullstripping original T1 completed\n');
- 
-ks_coreg_func(Data, Time)
- 
-fprintf(loghand, 'ks_coreg_func\n');
-fprintf(loghand, 'coreg of mean functional to skullstripped T1 completed\n');
- 
-ks_seg2_func(Data, Time)
- 
-fprintf(loghand, 'ks_seg2_func\n');
-fprintf(loghand, 'segment/Dartel import of skullstripped T1 completed\n');
-
-ks_smooth_func(Data, Time)
-
-fprintf(loghand, 'ks_smooth_func\n');
-fprintf(loghand, 'created smoothed non-normalized images for ART\n');
- 
-ks_rundartel_func(Data, Time)
- 
-fprintf(loghand, 'ks_rundartel_func\n');
-fprintf(loghand, 'DARTEL completed');
+% 
+% 
+% ks_seg1_func(Data, Time)
+% fprintf(loghand, 'ks_seg1_func\n');
+% fprintf(loghand, 'segmenting original T1 completed\n');
+% % 
+% ks_strip_func(Data, Time)
+%  
+% fprintf(loghand, 'ks_strip_func\n');
+% fprintf(loghand, 'skullstripping original T1 completed\n');
+%  
+% 
+%  ks_realign_func(Data, Time)
+%  fprintf(loghand, 'ks_realign_func\n');
+%  fprintf(loghand, 'realignment to create mean functional completed\n');
+% 
+% ks_coreg_func(Data, Time)
+%  
+% fprintf(loghand, 'ks_coreg_func\n');
+% fprintf(loghand, 'coreg of mean functional to skullstripped T1 completed\n');
+%  
+% ks_seg2_func(Data, Time)
+%  
+% fprintf(loghand, 'ks_seg2_func\n');
+% fprintf(loghand, 'segment/Dartel import of skullstripped T1 completed\n');
+% 
+% ks_smooth_func(Data, Time)
+% 
+% fprintf(loghand, 'ks_smooth_func\n');
+% fprintf(loghand, 'created smoothed non-normalized images for ART\n');
+%  
+% ks_rundartel_func(Data, Time)
+%  
+% fprintf(loghand, 'ks_rundartel_func\n');
+% fprintf(loghand, 'DARTEL completed');
  
 ks_normalize_func(Data, Time)
  

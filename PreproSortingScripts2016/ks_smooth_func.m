@@ -33,7 +33,7 @@ sessions = subjects(i).Runs;
 d = {};
 
 for j=1:length(sessions)
-    f = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^corr.*\.nii$');%remember to change backk to ^corr
+    f = spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^corr.*\.nii$');
     sz = size(spm_vol(f));
     c = repmat({f}, sz);
     for k = 1:sz(1)
@@ -49,6 +49,7 @@ matlabbatch{1}.spm.spatial.smooth.im = 0;
 matlabbatch{1}.spm.spatial.smooth.prefix = 's';
 save(fullfile(logdir, [subject, '_', date, '_', 'Time', time1, '.', time2, '_smooth.mat']),'matlabbatch');
         %spm_jobman('interactive',jobs);
+disp(subject)
 output = spm_jobman('run',matlabbatch);
 
 end

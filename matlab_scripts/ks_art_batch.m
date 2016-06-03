@@ -27,7 +27,7 @@ mask_file=[];                 % set to user-defined mask file(s) for global sign
 
 %%%%%%%%%%%KS ADDITIONS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 subjects = Data.Subjects;
-resdir = [Data.lrn_res_dir '/'];
+resdir = [Data.mem_res_dir '/'];
 
 
 for n1=1:length(subjects)
@@ -37,11 +37,11 @@ for n1=1:length(subjects)
     motion_dir = fullfile(Data.motion_dir, subject, 'func');
     files = spm_select('FPList', fullfile(resdir, subject), 'SPM.mat');
     cd(image_dir);
-    sessions = Data.Subjects(n1).lrn_runs;
+    sessions = Data.Subjects(n1).mem_runs;
     if length(Data.Subjects(n1).portion) > 0
         portion = Data.Subjects(n1).portion;
     else
-        portion = [1:length(Data.Subjects(n1).lrn_runs)];
+        portion = [1:length(Data.Subjects(n1).mem_runs)];
     end
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

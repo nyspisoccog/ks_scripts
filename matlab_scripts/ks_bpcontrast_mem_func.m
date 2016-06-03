@@ -1,4 +1,4 @@
-function ks_bpcontrast_func(Data, Time, Parameters)
+function ks_bpcontrast_func(Data, Time)
 
 spm('Defaults','fMRI');
 

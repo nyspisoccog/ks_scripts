@@ -27,8 +27,8 @@ for i=1:numel(subjects)
             resdir = mem_res_dir;
             logdir = mem_log_dir;
             sessions = subjects(i).mem_runs;
-            load(fullfile(resdir, subject, 'SPM.mat'));
-            disp(fullfile(resdir, subject, 'SPM.mat'))
+            load(fullfile(resdir, subject, 'derivboost', 'SPM.mat'));
+            disp(fullfile(resdir, subject, 'derivboost', 'SPM.mat'))
             names = SPM.xX.name;
             
             convec = zeros(1, length(names));
@@ -54,8 +54,8 @@ for i=1:numel(subjects)
                 fprintf(loghand, '%f,', convec(l));
             end
             fprintf(loghand, '\n')
-            matlabbatch{1}.cfg_basicio.cfg_cd.dir = cellstr(fullfile(resdir, subject));
-            matlabbatch{2}.spm.stats.con.spmmat = cellstr(fullfile(resdir, subject, 'SPM.mat'));
+            matlabbatch{1}.cfg_basicio.cfg_cd.dir = cellstr(fullfile(resdir, subject, 'derivboost'));
+            matlabbatch{2}.spm.stats.con.spmmat = cellstr(fullfile(resdir, subject, 'derivboost', 'SPM.mat'));
             matlabbatch{2}.spm.stats.con.consess{1}.tcon.name = 'button_press';  
             matlabbatch{2}.spm.stats.con.consess{1}.tcon.convec = convec;
             matlabbatch{2}.spm.stats.con.consess{1}.tcon.sessrep = 'none';

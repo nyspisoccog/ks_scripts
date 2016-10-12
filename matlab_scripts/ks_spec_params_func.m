@@ -197,4 +197,5 @@ for i=1:numel(subjects)
     
     end
 end
+fclose('all')
 end

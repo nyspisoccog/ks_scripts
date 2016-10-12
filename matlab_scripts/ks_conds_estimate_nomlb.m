@@ -30,12 +30,14 @@ for i=1:numel(subjects)
         subs(i).matlabbatch{1}.spm.stats.fmri_est.spmmat = cellstr(fullfile(resdir, 'SPM.mat'));
         subs(i).matlabbatch{1}.spm.stats.fmri_est.method.Classical = 1;
         subs(i).matlabbatch{1}.spm.stats.fmri_est.write_residuals = 0;
+        clear SPM
+        subs(i).SPM = load(fullfile(resdir, 'SPM.mat'))
         matlabbatch = subs(i).matlabbatch;
         save(fullfile(logdir, [subject '_conds_estimate.mat']), 'matlabbatch');
     end
 end
 parfor nsub = 1:length(subjects)
-    spm_jobman('initcfg');
+    %spm_spm(subs(i).SPM.SPM);
     out = spm_jobman('run',subs(nsub).matlabbatch)
 end
 clear matlabbatch subject out subjects

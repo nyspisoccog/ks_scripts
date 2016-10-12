@@ -31,12 +31,21 @@ for i=1:numel(subjects)
         subs(i).matlabbatch{1}.spm.stats.fmri_est.method.Classical = 1;
         subs(i).matlabbatch{1}.spm.stats.fmri_est.write_residuals = 0;
         matlabbatch = subs(i).matlabbatch;
-        save(fullfile(logdir, [subject '_conds_estimate.mat']), 'matlabbatch');
+        %save(fullfile(logdir, [subject '_conds_estimate.mat']), 'matlabbatch');
     end
 end
+
+spmd
+    [old_DYLD_LIBRARY_PATH, old_PATH] = setup_SPM('/shared/persisted/spm12');
+end
+
 parfor nsub = 1:length(subjects)
     spm_jobman('initcfg');
     out = spm_jobman('run',subs(nsub).matlabbatch)
+end
+
+spmd
+    finish_SPM(old_DYLD_LIBRARY_PATH, old_PATH);
 end
 clear matlabbatch subject out subjects
 

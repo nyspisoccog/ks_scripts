@@ -1,7 +1,7 @@
 function ks_spec_bpsanitycheck_mem_func(Data, Time, Parameters)
 
 subjects = Data.Subjects;
-data_path = Data.data_path;
+data_path = Data.data_dir;
 lrn_res_dir = Data.lrn_res_dir;
 mem_res_dir = Data.mem_res_dir;
 bp_ons_dir = Data.bp_ons_dir;
@@ -9,6 +9,7 @@ lrn_ons_dir = Data.lrn_ons_dir;
 mem_ons_dir = Data.mem_ons_dir;
 lrn_log_dir = Data.lrn_log_dir;
 mem_log_dir = Data.mem_log_dir;
+art_dir = Data.art_dir;
 sess_type = {'mem'};
 
 %%initialize defaults
@@ -52,7 +53,7 @@ for i=1:numel(subjects)
         end
         files{tally} = scans;
         
-        rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^art_regression_outliers_and_movement_scorr.*\.mat$'));
+        rp{tally} = cellstr(spm_select('FPList', fullfile(art_dir, subject, 'func', sessions{j}), '^art_regression_outliers_and_movement_scorr.*\.mat$'));
         name = fullfile(bp_ons_dir, [subject sessions{j} '.txt']);
         delimiter = '\t';
         fID = fopen(name,'r');
@@ -77,7 +78,7 @@ for i=1:numel(subjects)
     end
 
     matlabbatch{2}.spm.stats.fmri_spec.fact = struct('name', {}, 'levels', {});
-    matlabbatch{2}.spm.stats.fmri_spec.bases.hrf.derivs = [1 0];
+    matlabbatch{2}.spm.stats.fmri_spec.bases.hrf.derivs = [1 1];
     matlabbatch{2}.spm.stats.fmri_spec.volt = 1;
     matlabbatch{2}.spm.stats.fmri_spec.global = 'None';
     matlabbatch{2}.spm.stats.fmri_spec.mthresh = 0;

@@ -1,7 +1,10 @@
 clear Data
 dbstop if error
 
+%scriptDir = '/home/katie/ks_scripts/matlab_scripts/';
+%scriptDir = '/Volumes/LaCie/ks_scripts/matlab_scripts/';
 script_dir = '/Users/katherine/ks_scripts/matlab_scripts/';
+
 addpath(script_dir);
 addpath(genpath('/Users/katherine/spm12'));
 
@@ -19,41 +22,8 @@ subjects = {'7404', '7408', '7412', '7414', '7418', '7430', '7432',...
             '7498', '7508', '7521', '7533', '7534', '7542', '7558', '7561',...
             '7562', '7575', '7580', '7607', '7619', '7623', '7638',...
             '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
-
-subjects = {'7404', '7408', '7412', '7414', '7418',  ...
-            '7436', '7443', '7453', '7458', '7474', '7480',...
-            '7498', '7508', '7521',  '7542', '7558', '7561',...
-             '7580', '7607', '7619', '7623', '7638',...
-            '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
+subjects = {'7404', '7408'};
         
-  subjects = {'7458', '7561', '7521', '7474', '7562', '7430', '7533',...
-      '7432', '7477', '7575', '7478', '7534', '7558', '7508', '7498',...
-      '7480', '7498', '7480', '7453', '7443', '7436'};
- subjects = { '7521', '7474', '7562', '7430', '7533',...
-      '7432', '7477', '7575', '7478', '7534', ...
-      '7480', '7498', '7480', '7453', '7443', '7436'};
-  
-subjects = {'7404', '7408', '7412', '7414', '7418', ...
-            '7458',  ...
-             '7508',   '7542', '7558', '7561',...
-             '7580', '7607', '7619', '7623', '7638',...
-            '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
-        
-subjects = {'7508'};
-subjects = {  '7542', '7558', '7561',...
-             '7580', '7607', '7619', '7623', '7638',...
-            '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
-subjects = {'7558'};
-subjects = {'7561',...
-             '7580', '7607', '7619', '7623', '7638',...
-            '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
-subjects = {'7404', '7408', '7412', '7414', '7418', '7430', '7432',...
-            '7436', '7443', '7453', '7458', '7474', '7477', '7478', '7480',...
-            '7498', '7508', '7521', '7533', '7534', '7542', '7558', '7561',...
-            '7562', '7575', '7580', '7607', '7619', '7623', '7638',...
-            '7645', '7648', '7649', '7659', '7714', '7726'};
-subjects = {'7404'};
-
 st_lrn_runs = {...
   'run1L1', 'run1L2', 'run1L3', 'run1L4', 'run1L5', 'run1L6',...
   'run2L1', 'run2L2', 'run2L3', 'run2L4','run2L5', 'run2L6'...
@@ -69,19 +39,22 @@ standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     };
 
-
-Data.data_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
-Data.art_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/test_cluster';
+%Data.data_path = '/media/truecrypt1/SocCog/preproc_data/';
+%Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data';
+%Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/conn_splitfiles_1024_wbp/lrn';
+Data.data_path = '/shared/persisted';
+%Data.art_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
+%Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/conn_256filter/';
+Data.res_dir = '/shared/persisted/results';
 
 Data.log_dir = [Data.res_dir '/logdir'];
 Data.lrn_res_dir = fullfile(Data.res_dir, 'lrn');
 Data.mem_res_dir = fullfile(Data.res_dir, 'mem');
 Data.lrn_log_dir = fullfile(Data.log_dir, 'lrn'); 
 Data.mem_log_dir = fullfile(Data.log_dir, 'mem');  
-Data.bp_ons_dir = '/Volumes/LaCie/LaPrivate/soccog/onsets/fixmem/bp';
-Data.lrn_ons_dir = '/Volumes/LaCie/LaPrivate/soccog/onsets/fixmem/lrn';
-Data.mem_ons_dir = '/Volumes/LaCie/LaPrivate/soccog/onsets/fixmem/mem';
+Data.bp_ons_dir = '/Volumes/LaCie/LaPrivate/soccog/onsets/noMV_noval_1stv2nd_wbp/bp';
+Data.lrn_ons_dir = '/Volumes/LaCie/LaPrivate/soccog/onsets/noMV_noval_1stv2nd_wbp/lrn';
+Data.mem_ons_dir = '/Volumes/LaCie/LaPrivate/soccog/onsets/noMV_noval_1stv2nd_wbp/mem';
 Data.sub_list = subjects;
 
 dir_list = {Data.res_dir, Data.log_dir, Data.mem_res_dir, Data.lrn_res_dir, Data.lrn_log_dir, Data.mem_log_dir};
@@ -103,22 +76,14 @@ for i = 1:numel(subjects)
     elseif strcmp(subjects(i), '7404')
         lrn_runs = st_lrn_runs(7:12);
         mem_runs = st_mem_runs;
-    elseif strcmp(subjects(i), '7408')
-        lrn_runs = st_lrn_runs;
-        mem_runs = st_mem_runs(1:6);
-        %mem_runs = st_mem_runs(1:12);
     elseif strcmp(subjects(i), '7432')
         lrn_runs = horzcat(st_lrn_runs(1:2), st_lrn_runs(4:12));
         mem_runs = st_mem_runs;
     elseif strcmp(subjects(i), '7436')
-        lrn_runs = st_lrn_runs(2:12);
+        lrn_runs = st_lrn_runs(2:12);%nec. if you're doing first half v. second half analyses
         mem_runs = st_mem_runs;
-    elseif strcmp(subjects(i), '7477')
-        lrn_runs = st_lrn_runs;
-        mem_runs = st_mem_runs(1:6);
-        %mem_runs = st_mem_runs;
     elseif strcmp(subjects(i), '7641')
-        lrn_runs = horzcat(st_lrn_runs(1:6), st_lrn_runs(8:12));
+        lrn_runs = horzcat(st_lrn_runs(1:6), st_lrn_runs(8:12));%only one trial recorded for 2L1
         mem_runs = st_mem_runs;
     elseif strcmp(subjects(i), '7458')
         lrn_runs = st_lrn_runs;
@@ -132,9 +97,6 @@ for i = 1:numel(subjects)
     elseif strcmp(subjects(i), '7659')
         mem_runs = st_mem_runs(1:6);
         lrn_runs = st_lrn_runs(1:6);
-    elseif strcmp(subjects(i), '7649')
-        mem_runs = st_mem_runs(1:6);
-        lrn_runs = st_lrn_runs;
     elseif strcmp(subjects(i), '7719')
         mem_runs = st_mem_runs(1:6);
         lrn_runs = st_lrn_runs(1:6);
@@ -153,6 +115,8 @@ end
 
 functions(1).log = 'ks_main_3';
 functions(2).log = 'ks_spec_params_wout_func';
+functions(3).log = 'ks_conds_estimate_func';
+
 
 
 
@@ -181,16 +145,15 @@ Parameters.RT.val = 'n';
  
 param_list = {Parameters.buttonpress, Parameters.tmod, Parameters.timed, ...
     Parameters.dispersed, Parameters.motion, Parameters.ans, Parameters.RT};
+%
 
 
-ks_spec_params_wout_func(Data, Time, Parameters);
-%ks_conds_estimate_func(Data, Time);
+ks_spec_params_wout_func(Data, Time, Parameters)
+ks_conds_estimate_func(Data, Time)
 
 
 
-
-
-dirs(1).log = ['data_dir=' Data.data_dir];
+dirs(1).log = ['data_path=' Data.data_path];
 dirs(2).log = ['art_dir=' Data.art_dir];
 dirs(3).log = ['res_dir=' Data.res_dir];
 
@@ -225,5 +188,3 @@ end
 for l=1:numel(param_list)
     fprintf(loghand, '%s %s\n', [param_list{l}.name, param_list{l}.val]);
 end
-
-fclose('all')

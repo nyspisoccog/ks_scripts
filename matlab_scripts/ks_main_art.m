@@ -73,7 +73,7 @@ standard_slices = {...
 
 Data.data_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 Data.motion_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/mem_firstlev';
+Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/mem_1stlev_forart';
 
 
 Data.log_dir = [Data.res_dir '/logdir'];
@@ -112,6 +112,7 @@ for i = 1:numel(subjects)
         mem_runs = st_mem_runs;
     elseif strcmp(subjects(i), '7408')
         lrn_runs = st_lrn_runs;
+        mem_runs = st_mem_runs;
     elseif strcmp(subjects(i), '7432')
         lrn_runs = horzcat(st_lrn_runs(1:2), st_lrn_runs(4:12));
         mem_runs = st_mem_runs;
@@ -168,18 +169,24 @@ for i = 1:numel(Data.Subjects)
     
 end
 
+functions(1).log = 'ks_main_art';
+functions(2).log = 'ks_write_swd';
+functions(2).log = 'ks_art_batch';
 
-functions(1).log = 'ks_art_batch';
 
-
-
+for f=1:length(functions)
+    src = fullfile(scriptDir, [functions(f).log '.m']);
+    dst = Data.res_dir;
+    copyfile(src, dst);
+end
 
 dirs(1).log = 'data_dir=/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
 dirs(2).log = 'motion_dir=/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
-dirs(3).log = 'res_dir=/Volumes/LaCie/LaPrivate/soccog/results/mem_firstlev';
+dirs(3).log = 'res_dir=/Volumes/LaCie/LaPrivate/soccog/results/mem_1stlev_forart';
 
 for j = 1:length(dirs)
     fprintf(loghand, '%s\n', dirs(j).log)
 end
 
+ks_write_swd(Data, Time)
 ks_art_batch(Data, Time)

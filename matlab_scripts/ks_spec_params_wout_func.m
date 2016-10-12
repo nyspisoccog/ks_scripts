@@ -1,6 +1,6 @@
 function ks_spec_params_wout_func(Data, Time, Parameters)
 
-data_path = Data.data_path;
+data_dir = Data.data_dir;
 art_path = Data.art_dir;
 lrn_res_dir = Data.lrn_res_dir;
 mem_res_dir = Data.mem_res_dir;
@@ -21,6 +21,7 @@ spm_get_defaults('defaults.mask.thresh', 0);
 spm_jobman('initcfg');
 
 for i=1:numel(subjects)
+    fclose all
     for lm = 1:numel(sess_type)
         clear files onsets matlabbatch rp events
         tally = 0;
@@ -34,7 +35,7 @@ for i=1:numel(subjects)
             sessions = subjects(i).mem_runs;
             resdir = fullfile(mem_res_dir, subject);
             consdir = mem_ons_dir;
-            logdir = lrn_log_dir;
+            logdir = mem_log_dir;
         end
         if ~exist(resdir, 'dir')
             mkdir(resdir);
@@ -50,17 +51,17 @@ for i=1:numel(subjects)
         
             tally = tally + 1;
             
-            func_run_str = fullfile(data_path, subject, 'func', sessions{j}, ...
+            func_run_str = fullfile(data_dir, subject, 'func', sessions{j}, ...
                 ['swcorr_r' subject sessions{j} '4D.nii']);
-            scans = cell(56, 1);
-            for scan = 1:56
+            scans = cell(165, 1);
+            for scan = 1:165
                 scans{scan, 1} = horzcat(func_run_str, ',', int2str(scan));
             end
             files{tally} = scans;
-            rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^art_regression_outliers_and_movement_scorr.*\.mat$'));
-            %rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^r7.*\.txt$'));
-            %files{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^sw.*\.img$'));
-            %rp{tally} = cellstr(spm_select('FPList', fullfile(data_path, subject, 'func', sessions{j}), '^rp.*\.txt$'));
+            rp{tally} = cellstr(spm_select('FPList', fullfile(art_path, subject, 'func', sessions{j}), '^art_regression_outliers_and_movement_scorr.*\.mat$'));
+            %rp{tally} = cellstr(spm_select('FPList', fullfile(data_dir, subject, 'func', sessions{j}), '^r7.*\.txt$'));
+            %files{tally} = cellstr(spm_select('FPList', fullfile(data_dir, subject, 'func', sessions{j}), '^sw.*\.img$'));
+            %rp{tally} = cellstr(spm_select('FPList', fullfile(data_dir, subject, 'func', sessions{j}), '^rp.*\.txt$'));
         
             delimiter = '\t';
         
@@ -175,7 +176,7 @@ for i=1:numel(subjects)
             end
             
             
-        matlabbatch{2}.spm.stats.fmri_spec.sess(m).hpf = 1024;
+        matlabbatch{2}.spm.stats.fmri_spec.sess(m).hpf = 256;
         end
 
         matlabbatch{2}.spm.stats.fmri_spec.fact = struct('name', {}, 'levels', {});
@@ -193,7 +194,6 @@ for i=1:numel(subjects)
         matlabbatch{2}.spm.stats.fmri_spec.global = 'None';
         matlabbatch{2}.spm.stats.fmri_spec.mthresh = 0;
         matlabbatch{2}.spm.stats.fmri_spec.mask = {'/Volumes/LaCie/LaPrivate/soccog/results/newpreprocsanitycheck/binarized_meanT1.nii,1'};
-        
         matlabbatch{2}.spm.stats.fmri_spec.cvi = 'AR(1)';
 
         save(fullfile(logdir, [subject sess_type{lm} '_modelspec.mat']), 'matlabbatch');
@@ -201,4 +201,5 @@ for i=1:numel(subjects)
     
     end
 end
+fclose('all')
 end

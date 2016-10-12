@@ -19,7 +19,7 @@ Time.time2 = time2;
 %             '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
 % 
 
-subjects = {'7404', '7408'};
+subjects = {'7649'};
 
 % standard_runs = {...
 %   'run1L1', 'run1L2', 'run1L3', 'run1L4',...
@@ -37,7 +37,7 @@ standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     };
 
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_test/';
+Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_7649/';
 Data.logdir = fullfile(Data.data_path, 'logdir') ;   
 
 for i = 1:numel(subjects)
@@ -99,7 +99,7 @@ for i = 1:numel(subjects)
     end
 end
 
-ks_3dto4d(Data, Time)
+%ks_3dto4d(Data, Time)
 %ks_3dto4d(Data_7562_1Ls_St, Time)
 
 %ks_realign_func(Data, Time)
@@ -120,7 +120,7 @@ fprintf(loghand, 'segmenting original T1 completed\n');
 fprintf(loghand, 'ks_strip_func\n');
 fprintf(loghand, 'skullstripping original T1 completed\n');
  
-%ks_coreg_func(Data, Time)
+ks_coreg_func(Data, Time)
  
  fprintf(loghand, 'ks_coreg_func\n');
  fprintf(loghand, 'coreg of mean functional to skullstripped T1 completed\n');

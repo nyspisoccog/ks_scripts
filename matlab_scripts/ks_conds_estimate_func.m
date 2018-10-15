@@ -14,7 +14,7 @@ lrn_res_dir = Data.lrn_res_dir;
 mem_res_dir = Data.mem_res_dir;
 lrn_log_dir = Data.lrn_log_dir; 
 mem_log_dir = Data.mem_log_dir;
-sess_type = {'mem'};
+sess_type = {'lrn'};
 subjects = Data.Subjects;
 
 for i=1:numel(subjects)
@@ -34,7 +34,8 @@ for i=1:numel(subjects)
         save(fullfile(logdir, [subject '_conds_estimate.mat']), 'matlabbatch');
     end
 end
-parfor nsub = 1:length(subjects)
+for nsub = 1:length(subjects)
+    disp(subjects(nsub))
     spm_jobman('initcfg');
     out = spm_jobman('run',subs(nsub).matlabbatch)
 end

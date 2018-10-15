@@ -1,4 +1,5 @@
-function ks_robust_spec(Data, Time, Num)
+
+function ks_rob_spec_poster(Data, Time, Num)
 
 spm('Defaults','fMRI');
 spm_get_defaults('defaults.mask.thresh', 0);
@@ -9,6 +10,7 @@ addpath(genpath('/Users/katherine/RobustToolbox-master/'));
 
 lrn_res_dir = Data.lrn_res_dir;
 mem_res_dir = Data.mem_res_dir;
+poster_res_dir = Data.poster_res_dir;
 subjects = Data.Subjects;
 log_dir = Data.log_dir;
 date = Time.date;
@@ -26,7 +28,7 @@ for nsub = 1:length(subjects)
     EXPT.subjects(nsub, :) = fullfile(mem_res_dir, subjects(nsub).ID);
 end
 
-EXPT.SNPM.P = cell
+
 for i=1:Num
     clear matlabbatch confiles
     matlabbatch{1}.spm.stats.factorial_design.dir = {mem_res_dir};
@@ -41,12 +43,16 @@ for i=1:Num
         confiles = vertcat(confiles, (spm_select('FPList', fullfile(mem_res_dir, subject, 'derivboost'), srch_str)));
     end
     
-    EXPT.SNPM.P{i} = confiles{:,1};
+    confiles = char(confiles);
+    
+    EXPT.SNPM.P{i} = confiles;
+    
     load(fullfile(mem_res_dir, '7404', 'derivboost', 'SPM.mat'));
     EXPT.SNPM.connames{i} = SPM.xCon(i).name;
     EXPT.SNPM.connums(i) = i;
     EXPT.SNPM.mask = which('brainmask.nii');
 end
+
 
 EXPT.SNPM.connames = char(EXPT.SNPM.connames{:});
 save EXPT

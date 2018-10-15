@@ -9,7 +9,7 @@ lrn_ons_dir = Data.lrn_ons_dir;
 mem_ons_dir = Data.mem_ons_dir;
 lrn_log_dir = Data.lrn_log_dir; 
 mem_log_dir = Data.mem_log_dir;
-sess_type = {'mem'};
+sess_type = {'lrn'};
 subjects = Data.Subjects;
 
 spmd

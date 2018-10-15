@@ -1,8 +1,8 @@
-function ks_robust_spec(Data, Time, Num)
+function ks_robust_fdr_spec(Data, Time, Num)
 
 spm('Defaults','fMRI');
 spm_get_defaults('defaults.mask.thresh', 0);
-spm_jobman('initcfg');
+%spm_jobman('initcfg');
 addpath(genpath('/Users/katherine/CanlabCore-master/'));
 addpath(genpath('/Users/katherine/RobustToolbox-master/'));
 addpath(genpath('/Users/katherine/MediationToolbox-master/'));
@@ -19,17 +19,6 @@ time2 = Time.time2;
 
 logname = fullfile(mem_res_dir, 'robust_results.txt');
 loghand = fopen(logname,'wt');
-
-%loop through main contrasts
-%fit and get results for contrasts
-%for every main contrast with sig results, call function to generate ROIS, 
-%make CSV files
-%then loop through subdirectories we just made
-%for every followup contrast
-% specify follow up contrasts with smaller mask within sub directory
-% cd into it to get results.
-
-
 
 
 EXPT.subjects = repmat(char(0),length(subjects), ...
@@ -61,38 +50,12 @@ for i=1:4
 end
 
 
+EXPT.mask = which('brainmask.nii');
 
-for i=1:Num
-    clear confiles
-    if i < 10
-        srch_str = ['^con_000' int2str(i) '.*\.nii$']; 
-    else
-        srch_str = ['^con_00' int2str(i) '.*\.nii$']; 
-    end
-    confiles = {};
-    for j=1:numel(subjects)
-        subject = subjects(j).ID;
-        confiles = vertcat(confiles, (spm_select('FPList', fullfile(mem_res_dir, subject, 'derivboost'), srch_str)));
-    end
-    
-    confiles = char(confiles);
-    
-    EXPT_CLUSTER.SNPM.P{i} = confiles;
-    
-    load(fullfile(mem_res_dir, '7404', 'derivboost', 'SPM.mat'));
-    EXPT_CLUSTER.SNPM.connames{i} = SPM.xCon(i).name;
-    EXPT_CLUSTER.SNPM.connums(i) = i;
-end
+cd(mem_res_dir)
 
-EXPT_CLUSTER.SNPM.connames = char(EXPT_CLUSTER.SNPM.connames{:});
-
-EXPT_WHOLE_BRAIN.SNPM.connames = char(EXPT_WHOLE_BRAIN.SNPM.connames{:});
-EXPT_WHOLE_BRAIN.SNPM.mask = which('brainmask.nii');
-
-cd(lrn_res_dir)
-mask = which('brainmask.nii');
-EXPT_WHOLE_BRAIN = robfit(EXPT_WHOLE_BRAIN, 1:length(EXPT_WHOLE_BRAIN.SNPM.connums), 0, mask);
-save EXPT_WHOLE_BRAIN
+EXPT = robfit(EXPT, 1:length(EXPT.SNPM.connums), 0, EXPT.mask);
+save EXPT
 
 
 
@@ -101,7 +64,7 @@ for i = 1:4
     rob_dr = [mem_res_dir '/robust' zeropad int2str(i)];
     cd(rob_dr)
     addpath(genpath('/Users/katherine/MediationToolbox-master/'))
-    [clpos, clneg, clpos_data, clneg_data] = mediation_brain_results('rob0', 'thresh', [.001], 'size', [5], 'prune');
+    [clpos, clneg, clpos_data, clneg_data] = mediation_brain_results('rob0', 'thresh', [.001], 'size', [5], 'fdrthresh', .05, 'prune');
     pos_dir_list = {};
     neg_dir_list = {};
     pos_label_list = {};
@@ -123,31 +86,10 @@ for i = 1:4
     save clneg
     dir_list = [pos_dir_list neg_dir_list];
     label_list = [pos_label_list neg_label_list];
-    for j = 1:length(dir_list)
-        if ~exist(dir_list{j}, 'dir')
-            mkdir(dir_list{j})
-        end
-        cd(dir_list{j})
-        mask = fullfile(rob_dr, [label_list{j} '.nii']);
-        EXPT_CLUSTER_NEW = EXPT_CLUSTER;
-        EXPT_CLUSTER_NEW.SNPM.mask = mask;
-        EXPT_CLUSTER_NEW = robfit(EXPT_CLUSTER_NEW, 1:length(EXPT_CLUSTER.SNPM.connums), 0, mask);
-        save EXPT_CLUSTER_NEW
-        for k = 5:14
-            if k < 10
-                zeropad = '000';
-            else
-                zeropad = '00';
-            end
-            sub_dr = [dir_list{j} '/robust' zeropad int2str(k)];
-            cd(sub_dr)
-            [clpos, clneg, clpos_data, clneg_data] = mediation_brain_results('rob0', 'thresh', [.001], 'size', [5], 'prune');
-        end
-    end
 end
 
 
-logname = fullfile(mem_res_dir, 'robust_results.txt');
+logname = fullfile(mem_res_dir, 'robust_results.txt'); [clpos, clneg, clpos_data, clneg_data] = mediation_brain_results('rob0', 'thresh', [.001], 'size', [5], 'fdrthresh', .05, 'prune');
 loghand = fopen(logname,'wt');
 
 

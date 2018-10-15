@@ -12,32 +12,34 @@ Time.time1 = time1;
 Time.time2 = time2;
 
 
-% subjects = {'7403', '7404', '7408', '7412', '7414', '7418', '7430', '7432',...
-%             '7436', '7443', '7453', '7458', '7474', '7477', '7478', '7480',...
-%             '7498', '7508', '7521', '7533', '7534', '7542', '7558', '7561',...
-%             '7562', '7575', '7580', '7607', '7613', '7619', '7623', '7638',...
-%             '7641', '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
-% 
+subjects = {'7403', '7404', '7408', '7412', '7414', '7418', '7430', '7432',...
+             '7436', '7443', '7453', '7458', '7474', '7477', '7478', '7480',...
+             '7498', '7508', '7521', '7533', '7534', '7542', '7558', '7561',...
+             '7562', '7575', '7580', '7607',  '7619', '7623', '7638',...
+             '7645', '7648', '7649', '7659', '7714', '7719', '7726'};
+ 
 
-subjects = {'7649'};
+%subjects = {'7649'};
 
-% standard_runs = {...
-%   'run1L1', 'run1L2', 'run1L3', 'run1L4',...
-%   'run1L5', 'run1L6', 'run1M1', 'run1M2',...
-%   'run1M3', 'run1M4', 'run1M5', 'run1M6',...
-%   'run2L1', 'run2L2', 'run2L3', 'run2L4',...
-%   'run2L5', 'run2L6', 'run2M1', 'run2M2',...
-%   'run2M3', 'run2M4', 'run2M5', 'run2M6', ... 
-% };
+ standard_runs = {...
+   'run1L1', 'run1L2', 'run1L3', 'run1L4',...
+   'run1L5', 'run1L6', 'run1M1', 'run1M2',...
+   'run1M3', 'run1M4', 'run1M5', 'run1M6',...
+   'run2L1', 'run2L2', 'run2L3', 'run2L4',...
+   'run2L5', 'run2L6', 'run2M1', 'run2M2',...
+   'run2M3', 'run2M4', 'run2M5', 'run2M6'... 
+ };
 
-standard_runs = {'run2L1', 'run2L2'}
+% standard_runs = {'run1M1', 'run1M2',...
+%   'run1M3', 'run1M4', 'run1M5', 'run1M6', 'run2M1', 'run2M2',...
+%    'run2M3', 'run2M4', 'run2M5', 'run2M6' };
 
 standard_slices = {...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,...
     };
 
-Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_7649/';
+Data.data_path = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
 Data.logdir = fullfile(Data.data_path, 'logdir') ;   
 
 for i = 1:numel(subjects)
@@ -58,12 +60,12 @@ for i = 1:numel(subjects)
 
 end
 
-% Data_7562_1Ls_St.data_path = Data.data_path;
-% Data_7562_1Ls_St.logdir = Data.logdir;
-% Data_7562_1Ls_St.Subjects(1).ID = '7562';
-% Data_7562_1Ls_St.Subjects(1).Runs = standard_runs(1:6);
-% Data_7562_1Ls_St.Subjects(1).NSlices = 35;
-% Data_7562_1Ls_St.Subjects(1).SliceOrd = [1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34];
+Data_7562_1Ls_St.data_path = Data.data_path;
+Data_7562_1Ls_St.logdir = Data.logdir;
+Data_7562_1Ls_St.Subjects(1).ID = '7562';
+Data_7562_1Ls_St.Subjects(1).Runs = standard_runs(1:6);
+Data_7562_1Ls_St.Subjects(1).NSlices = 35;
+Data_7562_1Ls_St.Subjects(1).SliceOrd = [1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34];
 
 
 %logfile
@@ -85,8 +87,8 @@ end
 
 %ks_slicetime_func(Data, Time)
 
-fprintf(loghand, 'ks_slicetime_func\n');
-fprintf(loghand, 'slicetiming completed\n');
+%fprintf(loghand, 'ks_slicetime_func\n');
+%fprintf(loghand, 'slicetiming completed\n');
 
 %ks_slicetime_func(Data_7562_1Ls_St, Time)
 %fprintf(loghand, 'ks_slicetime_func\n');
@@ -103,39 +105,39 @@ end
 %ks_3dto4d(Data_7562_1Ls_St, Time)
 
 %ks_realign_func(Data, Time)
-% 
-fprintf(loghand, 'ks_realign_func\n');
-fprintf(loghand, 'realignment completed\n');
+ 
+%fprintf(loghand, 'ks_realign_func\n');
+%fprintf(loghand, 'realignment completed\n');
  
 
 %ks_mean_func(Data, Time)
 
-%ks_seg1_func(Data, Time)
+ks_seg1_func(Data, Time)
  
 fprintf(loghand, 'ks_seg1_func\n');
 fprintf(loghand, 'segmenting original T1 completed\n');
 
-%ks_strip_func(Data, Time)
+ks_strip_func(Data, Time)
  
 fprintf(loghand, 'ks_strip_func\n');
 fprintf(loghand, 'skullstripping original T1 completed\n');
  
 ks_coreg_func(Data, Time)
  
- fprintf(loghand, 'ks_coreg_func\n');
- fprintf(loghand, 'coreg of mean functional to skullstripped T1 completed\n');
+fprintf(loghand, 'ks_coreg_func\n');
+fprintf(loghand, 'coreg of mean functional to skullstripped T1 completed\n');
  
-%ks_seg2_func(Data, Time)
+ks_seg2_func(Data, Time)
  
 fprintf(loghand, 'ks_seg2_func\n');
 fprintf(loghand, 'segment/Dartel import of skullstripped T1 completed\n');
  
-%ks_rundartel_func(Data, Time)
+ks_rundartel_func(Data, Time)
  
 fprintf(loghand, 'ks_rundartel_func\n');
 fprintf(loghand, 'DARTEL completed');
  
-%ks_normalize_func(Data, Time)
+ks_normalize_func(Data, Time)
  
 fprintf(loghand, 'ks_normalize_func\n');
 fprintf(loghand, 'normalization completed');

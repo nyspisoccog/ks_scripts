@@ -1,6 +1,6 @@
 function ks_spec_params_func(Data, Time, Parameters)
 
-data_path = Data.data_path;
+data_path = Data.data_dir;
 art_path = Data.art_dir;
 lrn_res_dir = Data.lrn_res_dir;
 mem_res_dir = Data.mem_res_dir;
@@ -9,8 +9,9 @@ lrn_ons_dir = Data.lrn_ons_dir;
 mem_ons_dir = Data.mem_ons_dir;
 lrn_log_dir = Data.lrn_log_dir; 
 mem_log_dir = Data.mem_log_dir;
-sess_type = {'mem'};
+sess_type = {'lrn'};
 subjects = Data.Subjects;
+num_scans = Data.num_scans
 
 %%initialize defaults
 
@@ -51,8 +52,8 @@ for i=1:numel(subjects)
             
             func_run_str = fullfile(data_path, subject, 'func', sessions{j}, ...
                 ['swcorr_r' subject sessions{j} '4D.nii']);
-            scans = cell(165, 1);
-            for scan = 1:165
+            scans = cell(num_scans, 1);
+            for scan = 1:num_scans
                 scans{scan, 1} = horzcat(func_run_str, ',', int2str(scan));
             end
             files{tally} = scans;
@@ -171,7 +172,8 @@ for i=1:numel(subjects)
             end
             
             
-        matlabbatch{2}.spm.stats.fmri_spec.sess(m).hpf = 256;
+          
+        matlabbatch{2}.spm.stats.fmri_spec.sess(m).hpf = 1024;
         end
 
         matlabbatch{2}.spm.stats.fmri_spec.fact = struct('name', {}, 'levels', {});

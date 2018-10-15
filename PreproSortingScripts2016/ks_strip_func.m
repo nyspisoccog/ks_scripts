@@ -28,7 +28,7 @@ for i=1:numel(subjects)
     
     subject = subjects(i).ID;
     
-    a = spm_select('FPList', fullfile(data_path, subject,'anat'), '^s.*\.nii$');
+    a = spm_select('FPList', fullfile(data_path, subject,'anat'), '^ms.*\.nii$');%the addition of 'm' is a change
     
     matlabbatch{1}.cfg_basicio.cfg_cd.dir = cellstr(fullfile(data_path, subject));
     

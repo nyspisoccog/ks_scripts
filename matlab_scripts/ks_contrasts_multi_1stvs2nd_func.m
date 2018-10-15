@@ -27,8 +27,8 @@ for i=1:numel(subjects)
             resdir = lrn_res_dir;
             logdir = lrn_log_dir;
             sessions = subjects(i).lrn_runs;
-            load(fullfile(resdir, subject, 'SPM.mat'));
-            disp(fullfile(resdir, subject, 'SPM.mat'))
+            load(fullfile(resdir, subject, 'derivboost', 'SPM.mat'));
+            disp(fullfile(resdir, subject, 'derivboost', 'SPM.mat'))
             names = SPM.xX.name;
             for j = 1:numel(names)
                 if isempty(strfind(names{j}, 'LNIF*bf(1)')) ~= 1
@@ -211,7 +211,7 @@ for i=1:numel(subjects)
             end
             
             matlabbatch{1}.cfg_basicio.cfg_cd.dir = cellstr(fullfile(resdir, subject));
-            matlabbatch{2}.spm.stats.con.spmmat = cellstr(fullfile(resdir, subject, 'SPM.mat'));
+            matlabbatch{2}.spm.stats.con.spmmat = cellstr(fullfile(resdir, subject, 'derivboost', 'SPM.mat'));
             for p = 1:numel(con_struct) 
                 matlabbatch{2}.spm.stats.con.consess{p}.tcon.name = con_struct(p).name;  
                 matlabbatch{2}.spm.stats.con.consess{p}.tcon.convec = con_struct(p).convec;

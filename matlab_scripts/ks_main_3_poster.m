@@ -40,10 +40,11 @@ standard_slices = {...
 
 Data.data_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_new';
 Data.art_dir = '/Volumes/LaCie/LaPrivate/soccog/preproc_data_art';
-Data.res_dir = '/Volumes/LaCie/LaPrivate/soccog/results/feb2017memfirstlev'
+Data.res_dir = '/Volumes/TimeMachineBackups/feb2017memfirstlev';
 Data.log_dir = [Data.res_dir '/logdir'];
 Data.lrn_res_dir = fullfile(Data.res_dir, 'lrn');
 Data.mem_res_dir = fullfile(Data.res_dir, 'mem');
+Data.poster_res_dir = fullfile(Data.res_dir, 'poster');
 Data.lrn_log_dir = fullfile(Data.log_dir, 'lrn'); 
 Data.mem_log_dir = fullfile(Data.log_dir, 'mem');  
 Data.bp_ons_dir = '/Volumes/LaCie/LaPrivate/soccog/onsets/fixmem/bp';
@@ -125,7 +126,7 @@ Data.reg_names = {'MSRT*bf(1)', 'MSRU*bf(1)', 'MSIT*bf(1)', 'MSIU*bf(1)', ...
 functions(1).log = 'ks_main_3';
 functions(2).log = 'ks_contrasts_multi_mem_followup';
 functions(3).log = 'ks_followup_spec_deriv_2ndlev';
-functions(4).log = 'ks_robust_fdr_spec';
+functions(4).log = 'ks_robust_spec';
 
 
 
@@ -161,7 +162,7 @@ param_list = {Parameters.buttonpress, Parameters.tmod, Parameters.timed, ...
 %ks_calc_deriv_boost(Data, Time, 3);
 %ks_contrasts_multi_mem_followup(Data, Time);
 %ks_followup_spec_deriv_2ndlev(Data, Time, 14);
-ks_robust_fdr_spec(Data, Time, 14);
+ks_rob_spec_poster(Data, Time, 14);
 
 
 

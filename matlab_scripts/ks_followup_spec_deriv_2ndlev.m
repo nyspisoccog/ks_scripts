@@ -26,7 +26,7 @@ for i=1:Num
     else
         srch_str = ['^con_00' int2str(i) '.*\.nii$']; 
     end
-    dir_name = fullfile(mem_res_dir, ['con' int2str(i)]);
+    dir_name = fullfile(lrn_res_dir, ['con' int2str(i)]);
     if ~exist(dir_name, 'dir')
         mkdir(dir_name)
     end

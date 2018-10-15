@@ -10,7 +10,7 @@ lrn_res_dir = Data.lrn_res_dir;
 mem_res_dir = Data.mem_res_dir;
 lrn_log_dir = Data.lrn_log_dir; 
 mem_log_dir = Data.mem_log_dir;
-sess_type = {'mem'};
+sess_type = {'lrn'};
 subjects = Data.Subjects;
 
 
@@ -20,20 +20,24 @@ for i=1:numel(subjects)
     for lm = 1:numel(sess_type)
         if strcmp(sess_type{lm}, 'mem')
             logdir = mem_log_dir;
-            logname = fullfile(logdir, 'derivboost.txt');
-            loghand = fopen(logname,'wt');
             runs = subjects(i).mem_runs;
             resdir = mem_res_dir;
-            derivdir = fullfile(resdir, subject, 'derivboost');
-            if ~exist(derivdir, 'dir')
-                mkdir(derivdir)
-            end
-            clear SPM
-            load(fullfile(resdir, subject, 'SPM.mat'));
-            SPM.swd = derivdir;
-            save(fullfile(derivdir, 'SPM.mat'), 'SPM');
-            copyfile(fullfile(resdir, subject, 'ResMS.nii'),derivdir);  
+        else
+            logdir = lrn_log_dir
+            runs = subjects(i).lrn_runs;
+            resdir = lrn_res_dir;
         end
+        logname = fullfile(logdir, 'derivboost.txt');
+        loghand = fopen(logname,'wt');
+        derivdir = fullfile(resdir, subject, 'derivboost');
+        if ~exist(derivdir, 'dir')
+            mkdir(derivdir)
+        end
+        clear SPM
+        load(fullfile(resdir, subject, 'SPM.mat'));
+        SPM.swd = derivdir;
+        save(fullfile(derivdir, 'SPM.mat'), 'SPM');
+        copyfile(fullfile(resdir, subject, 'ResMS.nii'),derivdir);
         fprintf(loghand, [subject, '\n']);
         SPM = load(fullfile(resdir, subject, 'SPM.mat'));
         names = SPM.SPM.xX.name;
